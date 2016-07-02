@@ -1,0 +1,364 @@
+/*GLOBAL------------------------------------------*/
+
+html,
+body {
+    font-family: "Segoe UI", "Source Sans Pro", Calibri, Helvetica, Arial, sans-serif;
+    display: table;
+    width: 100%;
+    height: 100%;
+    background-color: #f5f5f5;
+}
+input,
+select,
+button,
+textarea {
+    font-size: 16px !important;
+}
+.textBox,
+.numBox,
+.passBox,
+.btnBox,
+.selectBox {
+    box-sizing: border-box;
+    background-color: #ffffff !important;
+    margin: 0px 5px !important;
+    width: 100% !important;
+    height: 45px !important;
+    padding: 0px 2px 0px 8px !important;
+    border: 1px solid #8d8d8d !important;
+    line-height: 30px !important;
+    border-radius: 0px !important;
+    margin-bottom: 5px !important;
+    border-radius: 7px !important;
+}
+
+.btnQa {
+    box-sizing: border-box;
+    background-color: #ffffff !important;
+    margin: 0px 5px !important;
+    height: 40px !important;
+    border: 1px solid #0095d3 !important;
+    margin-bottom: 5px !important;
+}
+input[disabled] {
+    background-color: #c6c6c6 !important;
+}
+.link {
+    padding: 0px 2px 0px 8px !important;
+}
+/* centered columns styles */
+
+.row-centered {
+    text-align: center;
+}
+.col-centered {
+    display: inline-block;
+    float: none;
+    text-align: left;
+    margin-right: -4px;
+}
+.col-max {
+    /* custom max width */
+    
+    max-width: 355px;
+}
+[class*="col-"] {
+    padding-top: 10px;
+    padding-bottom: 15px;
+}
+[class*="col-"]:before {
+    display: block;
+    position: relative;
+    margin-bottom: 8px;
+    font-family: sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #658600;
+    text-align: left;
+}
+.loginBox {
+    width: 100%;
+    height: 100%;
+    padding: 16px 8px;
+}
+.btn {
+    border-radius: 7px !important;
+    color: #fff !important;
+}
+.btn:hover,
+.btn:link,
+.btn:visited,
+.btn:active {
+    color: #fff !important;
+}
+.btn-blue {
+    background-color: #0095d3 !important;
+}
+.btn-red {
+    background-color: #d3004f !important;
+}
+.link {
+    cursor: pointer;
+}
+
+
+.textTitle {
+    font-size: 30px;
+    color: #656565;
+}
+
+input[type=checkbox]:not(old),
+input[type=radio   ]:not(old){
+  width     : 2em;
+  margin    : 0;
+  padding   : 0;
+  font-size : 1em;
+  opacity   : 0;
+}
+
+input[type=checkbox]:not(old) + label,
+input[type=radio   ]:not(old) + label{
+  display      : inline-block;
+  margin-left  : -2em;
+  line-height  : 1.6em;
+    font-size: 18px;
+font-weight: 400;
+}
+
+input[type=checkbox]:not(old) + label > span,
+input[type=radio   ]:not(old) + label > span{
+  display          : inline-block;
+  width            : 20px;
+  height           : 20px;
+  margin           : 0.25em 0.5em 0.25em 0.25em;
+  border           : 0.0625em solid rgb(192,192,192);
+  border-radius    : 0.25em;
+  background       : rgb(224,224,224);
+  background-image :    -moz-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image :     -ms-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image :      -o-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image : -webkit-linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image :         linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  vertical-align   : bottom;
+  border-radius: 0px;
+  border: 1px solid #656565;
+}
+
+input[type=checkbox]:not(old):checked + label > span,
+input[type=radio   ]:not(old):checked + label > span{
+  background-image :    -moz-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :     -ms-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :      -o-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image : -webkit-linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :         linear-gradient(rgb(224,224,224),rgb(240,240,240));
+}
+
+input[type=checkbox]:not(old):checked + label > span:before{
+  content: '✔';
+  display     : block;
+  width       : 18px;
+  color       : rgb(0,94,210);
+  font-size   : 18px;
+  line-height : 1em;
+  text-align  : center;
+  text-shadow : 0 0 0.0714em rgb(115,153,77);
+  font-weight : bold;
+}
+
+input[type=radio]:not(old):checked + label > span > span{
+  display          : block;
+  width            : 16px;
+  height           : 16px;
+  margin-top: 1px;
+  margin-left: 1px;
+  border           : 0.0625em solid rgb(78,129,192);
+  background       : rgb(0,94,210);
+  background-image :    -moz-linear-gradient(rgb(78,129,192),rgb(78,129,192));
+  background-image :     -ms-linear-gradient(rgb(78,129,192),rgb(78,129,192));
+  background-image :      -o-linear-gradient(rgb(78,129,192),rgb(78,129,192));
+  background-image : -webkit-linear-gradient(rgb(78,129,192),rgb(78,129,192));
+  background-image :         linear-gradient(rgb(78,129,192),rgb(78,129,192));
+}
+
+/*LOGIN------------------------------------------*/
+
+.loginBody {
+    display: table-cell;
+    vertical-align: middle;
+    padding-bottom: 40px;
+    background-image: url(../images/backgrounds/login.jpg);
+    background-size: 100% 100%;
+}
+.warningText {
+    margin-top: 10px;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+}
+#logo {
+    height: 70px;
+    width: 250px;
+}
+
+/*QA------------------------------------------*/
+.qaDiv {
+    background-color: rgba(245, 245, 245, 0.80);
+    border: 1px solid rgba(113, 113, 113, 0.33) !important;
+    border-radius: 15px;
+}
+.questionLevel {
+    padding: 5px 0px 5px 10px;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 500;
+    background-color: rgba(113, 113, 113, 0.33);
+    border-radius:15px 15px 0px 0px;
+    border-bottom: 1px solid #7d7d7d;
+}
+
+.questionTime {
+    padding: 5px 0px 5px 10px;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 500;
+    background-color: rgba(113, 113, 113, 0.33);
+    border-radius:0px 0px 15px 15px;
+    border-top: 1px solid #7d7d7d;
+}
+
+.qaQuestions, .qaButtons{
+    padding: 5px 0px 5px 10px;
+}
+
+#lblRational {
+    display: none;
+}
+
+.qaResultDiv {
+    background-color: rgba(245, 245, 245, 0.80);
+    border: 1px solid rgba(113, 113, 113, 0.33) !important;
+    min-height: 300px;
+}
+
+.qaResult-Header {
+    padding: 5px 0px 5px 10px;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: 500;
+    background-color: rgba(113, 113, 113, 0.33);
+    border-bottom: 1px solid #7d7d7d;
+}
+
+.qaResult ul {
+    list-style-type: none;
+    margin-top: 10px;
+}
+
+/*FOOTER-----------------------------------------*/
+
+footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 30px;
+    width: 100%;
+    background-color: #4e81c0 !important;
+}
+footer span {
+    float: right;
+    margin-right: 15px;
+    margin-top: 5px;
+    color: #f5f5f5 !important;
+}
+/*INDEX-----------------------------------------*/
+
+.indexBody {
+    background-image: url(../images/backgrounds/login.jpg);
+    background-size: 100% 100%;
+    min-height:100%;
+    position:relative;
+}
+.navbar-default {
+    background-image: none !important;
+    background-color: #4e81c0 !important;
+    border: none !important;
+    border-radius: 0px !important;
+    color: #fff !important;
+}
+.navbar-brand #brandLogo {
+    width: 95px;
+}
+.navbar-default .navbar-nav>li>a {
+    color: #f5f5f5 !important;
+}
+.navbar-default .navbar-nav>.active>a {
+    background-image: linear-gradient(to bottom, #365b89 0, #365b89 100%);
+}
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:focus,
+.navbar-default .navbar-nav>.open>a:hover {
+    background-image: linear-gradient(to bottom, #365b89 0, #365b89 100%);
+}
+.navbar-default .navbar-nav> li:hover {
+    background-color: #7fa5d4;
+}
+.marginBottom-0 {
+    margin-bottom: 0;
+}
+.dropdown-submenu {
+    position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px 6px;
+    border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #cccccc;
+    margin-top: 5px;
+    margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+    border-left-color: #555;
+}
+.dropdown-submenu.pull-left {
+    float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #fff !important;
+}
+.welcomeUser {
+    font-weight: bold;
+    color: #d5d5d5;
+}
+
+.clsSUC {
+    display: none;
+    margin-left: 50px;
+}
+
+@media (max-width: 767px) {
+    .navbar-default .navbar-nav .open .dropdown-menu>li>a {
+        color: #fff !important;
+    }
+}   
