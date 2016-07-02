@@ -191,6 +191,7 @@ qa.controller('questionAndAnswerCtrl', ['$scope', '$http', 'qaService', function
         loadQuestions(qaIndex); 
         clearInterval(interval);
         $("#lblRational").hide();
+        $("input[name=question-answers]").prop('checked', false);
     }
     
     function displayAnswerStatus() {
