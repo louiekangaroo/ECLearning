@@ -59,7 +59,10 @@
                         <input type="submit" id="btnSubmit" class ="btnQa" value="Submit Answer" ng-click="submitAnswer()">
                         <input type="submit" id="btnNext" class ="btnQa" value="Next Question" ng-click="nextQuestion()">
                     </div>
-                    <div class="questionTime">Time remaining : <b><span id="time">------</span></b></div>
+                    <div class="divTime">
+                        <span class="questionTime">Time remaining : <b><span id="time">------</span></b></span>
+                        <span class="timeRemaining">Total time remaining : <b><span id="totalTime">-------</span></b></span>
+                    </div>
                 </div>
             </div>
             <div class="col-sm-3 text-left qaInsideResult">
@@ -67,9 +70,9 @@
                 <div class="qaResult-Header">Q&A Results</b></div>
                 <div class="qaResult">
                     <ul ng-repeat="result in qaresults">
-                        <li><span>{{result.index}}. </span>
+                        <b><li><span>{{result.index}}. </span>
                             {{result.answer}} - <span ng-style="set_color(result.status)">{{result.status}}</span>
-                        </li>
+                        </li></b>
                     </ul>
                 </div>
             </div>

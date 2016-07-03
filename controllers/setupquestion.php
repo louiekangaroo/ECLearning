@@ -17,7 +17,10 @@
     
     $c_topicid = $_GET["sesstopic"];
     $c_subjid = $_GET["subjid"];
+    $c_sessiontype = $_GET["sesstype"];
+
     $StudentID = $_SESSION['studentID'];
+    
     
     $itemseasy = getfieldvalue("topic_config", "itemseasy", "where testtype = '$c_topicid'");
                     
@@ -27,7 +30,7 @@
     
     $totalitems = $itemsdifficult + $itemseasy + $itemsmoderate;
     
-    $sqlscript = "call  generateQuestions('$StudentID','$c_topicid','$c_subjid','$c_topicid',$itemseasy,$itemsmoderate,$itemsdifficult,0,'$c_topicid',$totalitems)";
+    $sqlscript = "call  generateQuestions('$StudentID','$c_topicid','$c_subjid','$c_topicid',$itemseasy,$itemsmoderate,$itemsdifficult,$c_sessiontype,'$c_topicid',$totalitems)";
     ExecuteNoneQuery($sqlscript);   
 
     echo $totalitems;

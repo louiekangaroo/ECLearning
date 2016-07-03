@@ -133,9 +133,7 @@ qa.controller('questionAndAnswerCtrl', ['$scope', '$http', 'qaService', function
     }
     
     setUpQuestions();
-    setTimeout(function() {
-        loadQuestions(qaIndex);
-    },100);
+   
     
     function setUpQuestions() {
         var myUrl = '../controllers/setupquestion.php';
@@ -143,9 +141,13 @@ qa.controller('questionAndAnswerCtrl', ['$scope', '$http', 'qaService', function
         $http({
             url: myUrl, 
             method: "GET",
-            params: { sesstopic : sessionTopic, subjid : subjectId }
+            params: { sesstopic : sessionTopic, subjid : subjectId, sesstype: sessionType }
         }).success(function(data) {
             totalQuestions = parseInt(data.trim());
+             setTimeout(function() {
+                loadQuestions(qaIndex);
+             },1000);
+             getTotalTime();
     	});
     }
     
@@ -162,9 +164,9 @@ qa.controller('questionAndAnswerCtrl', ['$scope', '$http', 'qaService', function
                 $scope.question = data[0];
                 questionId = $scope.question.id;
                 minutes = $scope.question.minutes;
-                var fiveMinutes = 60 * minutes,
+                var totalMin = 60 * minutes,
                 display = $('#time');
-                startTimer(fiveMinutes, display);
+                startTimer(totalMin, display);
             } else {
                 insertToTestHistory();            
             }
@@ -266,6 +268,24 @@ qa.controller('questionAndAnswerCtrl', ['$scope', '$http', 'qaService', function
         }, 1000);
     }
     
+    var interval2;
+    function startTimer2(duration, display) {
+        var timer = duration, minutes, seconds;
+        interval2 = setInterval(function () {
+            minutes = parseInt(timer / 60, 10)
+            seconds = parseInt(timer % 60, 10);
+
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            display.text(minutes + ":" + seconds);
+            
+            if (--timer < 0) {
+
+            }
+        }, 1000);
+    }
+    
     $scope.set_color = function (status) {
       if (status == "Correct") {
         return { color: "Green" }
@@ -274,7 +294,22 @@ qa.controller('questionAndAnswerCtrl', ['$scope', '$http', 'qaService', function
       }
     }
 
-    
+    function getTotalTime() {
+        var myUrl = '../controllers/gettotalmin.php';
+        
+        $http({
+            url: myUrl, 
+            method: "GET",
+            params: { sesstopic : sessionTopic, subjid : subjectId }
+        }).success(function(data) {
+            $scope.retMin = data[0].MIN;
+            setTimeout(function() {
+             var totalMin = 60 * $scope.retMin;
+             display = $('#totalTime');
+             startTimer2(totalMin, display);
+            }, 1000);
+    	});
+    }
 }]);
    
 

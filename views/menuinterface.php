@@ -16,7 +16,7 @@
                     <li><a href='#'>Question Bank</a></li>
                 </ul>
             </li>
-            <li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'>Report Management <b class='caret'></b></a>
+            <li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'>Admin Management <b class='caret'></b></a>
                 <ul class='dropdown-menu'>
                     <li><a href='#'>User Activity Logs</a></li>
                     <li><a href='#'>Exam Results</a></li>
