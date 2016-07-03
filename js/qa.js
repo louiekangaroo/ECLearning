@@ -133,7 +133,9 @@ qa.controller('questionAndAnswerCtrl', ['$scope', '$http', 'qaService', function
     }
     
     setUpQuestions();
-    loadQuestions(qaIndex);
+    setTimeout(function() {
+        loadQuestions(qaIndex);
+    },100);
     
     function setUpQuestions() {
         var myUrl = '../controllers/setupquestion.php';
@@ -204,7 +206,6 @@ qa.controller('questionAndAnswerCtrl', ['$scope', '$http', 'qaService', function
         } else {
             stat = "Wrong";
         }
-
         
         $scope.qaresults.push({
             index: qaIndex + 1,
@@ -264,6 +265,15 @@ qa.controller('questionAndAnswerCtrl', ['$scope', '$http', 'qaService', function
             }
         }, 1000);
     }
+    
+    $scope.set_color = function (status) {
+      if (status == "Correct") {
+        return { color: "Green" }
+      } else {
+        return { color: "Red" }   
+      }
+    }
+
     
 }]);
    

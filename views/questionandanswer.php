@@ -67,7 +67,9 @@
                 <div class="qaResult-Header">Q&A Results</b></div>
                 <div class="qaResult">
                     <ul ng-repeat="result in qaresults">
-                        <li><span>{{result.index}}. </span>{{result.answer}} - {{result.status}}</li>
+                        <li><span>{{result.index}}. </span>
+                            {{result.answer}} - <span ng-style="set_color(result.status)">{{result.status}}</span>
+                        </li>
                     </ul>
                 </div>
             </div>

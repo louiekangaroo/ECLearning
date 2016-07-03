@@ -238,7 +238,7 @@ input[type=radio]:not(old):checked + label > span > span{
 .qaResultDiv {
     background-color: rgba(245, 245, 245, 0.80);
     border: 1px solid rgba(113, 113, 113, 0.33) !important;
-    min-height: 300px;
+    min-height: 350px;
 }
 
 .qaResult-Header {
