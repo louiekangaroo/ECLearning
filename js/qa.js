@@ -262,7 +262,7 @@ qa.controller('questionAndAnswerCtrl', ['$scope', '$http', 'qaService', function
 
             display.text(minutes + ":" + seconds);
 
-            if (--timer < 0) {
+            if (--timer <= 0) {
                 $("#btnNext").trigger("click");
             }
         }, 1000);
