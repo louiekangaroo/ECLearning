@@ -130,6 +130,7 @@ qa.controller('questionAndAnswerCtrl', ['$scope', '$http', 'qaService', function
         $("#btnSubmit").hide();
         $("#lblRational").hide();
         $(".qaResult").hide();
+        $(".qaResultDiv").hide();
     }
     
     setUpQuestions();
@@ -238,7 +239,6 @@ qa.controller('questionAndAnswerCtrl', ['$scope', '$http', 'qaService', function
             url: myUrl, 
             method: "GET"
         }).success(function(data) {
-            var sessionType = "";
             if (sessionType == 0) {
                 sessionType = "Study Session";
             } else {
