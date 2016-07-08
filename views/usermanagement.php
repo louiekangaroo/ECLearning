@@ -16,12 +16,9 @@
       <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
       <title>EC Learning</title>
       <link href="../css/bootstrap.min.css" rel="stylesheet">
-      <link href="../css/dataTables.bootstrap.min.css" rel="stylesheet">
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
       <link href="../css/global.css" rel="stylesheet">
       <script src="../js/jquery-2.2.4.min.js"></script>
-      <script src="../js/jquery.dataTables.min.js"></script>
-      <script src="../js/dataTables.bootstrap.min.js"></script> 
       <script src="../js/angular.min.js"></script>
       <script src="../js/bootstrap.min.js"></script>
       <script src="../js/ec.js"></script>

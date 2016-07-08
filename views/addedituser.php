@@ -16,12 +16,9 @@
         <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
         <title>EC Learning</title>
         <link href="../css/bootstrap.min.css" rel="stylesheet">
-        <link href="../css/dataTables.bootstrap.min.css" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
         <link href="../css/global.css" rel="stylesheet">
         <script src="../js/jquery-2.2.4.min.js"></script>
-        <script src="../js/jquery.dataTables.min.js"></script>
-        <script src="../js/dataTables.bootstrap.min.js"></script> 
         <script src="../js/angular.min.js"></script>
         <script src="../js/bootstrap.min.js"></script>
         <script src="../js/ec.js"></script>
@@ -41,7 +38,7 @@
                             <div class="form-group">
                                 <label for="txtUsername" class="col-md-4 control-label txtLabel">Username:</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="txtUsername">
+                                    <input type="text" class="form-control" id="txtUsername" maxlength="15">
                                 </div>
                             </div>
                         </div>
@@ -49,7 +46,7 @@
                             <div class="form-group">
                                 <label for="inputPassword" class="col-md-4 control-label txtLabel">Password:</label>
                                 <div class="col-md-8">
-                                    <input type="password" class="form-control" id="inputPassword">
+                                    <input type="password" class="form-control" id="txtPassword" maxlength="6">
                                 </div>
                             </div>
                         </div>
@@ -129,7 +126,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row" style="padding: 0 10px 0 10px; margin-top: 20px;">
+                    <div class="row" style="padding: 0 10px 0 10px; margin-top: 0px;">
                         <div class="col-sm-4 col-lg-4">
                         </div>
                         <div class="col-sm-4 col-lg-4">
