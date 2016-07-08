@@ -28,9 +28,9 @@
     <!--This is the HEADER-->
     <?PHP include_once('echeader.php'); ?>
     <div class="container">
+        <span class="textTitle"></span>
         <div class="row content">
             <div class="col-sm-9 text-left">
-                <span class="textTitle"></span>
                 <hr>
                 <div class="qaDiv">
                     <div class="questionLevel">Level : <b>{{question.level}}</b></div>

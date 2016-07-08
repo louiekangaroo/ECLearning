@@ -28,9 +28,10 @@
     <!--This is the HEADER-->
     <?PHP include_once('echeader.php'); ?>
         <div class="container">
+            <span class="textTitle">List of Topics</span><hr>
             <div class="row content">
                 <div class="col-xs-12 col-sm-12 col-lg-12 text-left">
-                    <span class="textTitle">List of Topics</span><hr>
+                    
                     <div data-toggle="collapse" data-target="#collapseOne">
                         <div ng-repeat="s in studyUnits" class="studyUnits{{s.id}}">
                             <input id="sunits" type="checkbox" name="rdtopic" value="{{s.id}}" ng-click="expandCollapseChild(s.id)">

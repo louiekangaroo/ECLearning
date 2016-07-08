@@ -28,9 +28,10 @@
     <!--This is the HEADER-->
     <?PHP include_once('echeader.php'); ?>
     <div class="container">
+        <span class="textTitle">Select your topic</span><hr>
         <div class="row content">
             <div class="col-xs-12 col-sm-12 col-lg-12 text-left">
-            <span class="textTitle">Select your topic</span><hr>
+            
                 <div ng-repeat="x in topics">
                     <input id="rdio" type="radio" name="rdtopic" value="{{ x.id }}">
                     <label for="rdio"><span><span></span></span>{{x.topicname}}</label>

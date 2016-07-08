@@ -28,9 +28,10 @@
     <!--This is the HEADER-->
     <?PHP include_once('echeader.php'); ?>
     <div class="container">
+        <span class="textTitle">Select your session</span>
         <div class="row content">
             <div class="col-xs-12 col-sm-12 col-lg-12 text-left">
-                <span class="textTitle">Select your session</span>
+                
                 <hr>
                     <div>
                       <input id="option" type="radio" name="session" value="0">

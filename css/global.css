@@ -63,8 +63,7 @@ input[disabled] {
     max-width: 355px;
 }
 [class*="col-"] {
-    padding-top: 10px;
-    padding-bottom: 15px;
+ 
 }
 [class*="col-"]:before {
     display: block;
@@ -180,6 +179,10 @@ input[type=radio]:not(old):checked + label > span > span{
   background-image :         linear-gradient(rgb(78,129,192),rgb(78,129,192));
 }
 
+.alignCenter {
+    text-align: center;
+}
+
 /*LOGIN------------------------------------------*/
 
 .loginBody {
@@ -258,6 +261,60 @@ input[type=radio]:not(old):checked + label > span > span{
 .qaResult ul {
     list-style-type: none;
     margin-top: 10px;
+}
+
+/*USER-----------------------------------------*/
+
+.chkOk {
+    opacity: 1 !important;
+}
+
+#userTbl {
+    background-color: whitesmoke;   
+}
+
+#userTbl thead {
+    background-color: #4e81c0 !important;
+    color: #fff;
+}
+
+#userTbl thead th { 
+    font-weight: 100; 
+    font-size: 18px;
+    text-align: center;
+}
+
+.divButtons {
+    margin-bottom: 20px;
+}
+
+.btnUser {
+    box-sizing: border-box;
+    background-color: #ffffff !important;
+    height: 35px !important;
+    border: 1px solid #0095d3 !important;
+    margin-bottom: 5px !important;
+}
+
+.txtLabel {
+    font-weight: 400 !important;   
+}
+
+#userDiv {
+     background-color: #fff;
+    border: 1px solid rgba(113, 113, 113, 0.33) !important;
+    border-radius: 15px;
+    padding: 40px 10px 30px 0px;
+    display:block;
+    overflow:hidden;
+    margin-bottom: 45px;
+}
+
+.clsButtonSaveCancel input[type="button"] {
+    margin-bottom: 10px;
+    border:1px solid #ccc;
+    border-radius: 4px;
+    background: #fff;
 }
 
 /*FOOTER-----------------------------------------*/
@@ -362,14 +419,43 @@ footer span {
     margin-left: 50px;
 }
 
+ 
+
+/*Responsive----------------------------------*/
+
 @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu>li>a {
         color: #fff !important;
+    }
+    
+    #userDiv {
+        overflow: auto;   
     }
 }  
 
 @media (max-width: 440px) {
     .divTime {
         font-size: 10px;   
+    }
+    
+    #userTbl thead th:nth-child(2),
+    #userTbl tbody td:nth-child(2){
+        display: none;
+    }
+    
+    #userDiv {
+        overflow: auto;   
+    }
+  
+}
+
+@media (max-width: 515px) {
+    #userTbl thead th:nth-child(2),
+    #userTbl tbody td:nth-child(2){
+        display: none;
+    }
+    
+    #userDiv {
+        overflow: auto;   
     }
 }

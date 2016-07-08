@@ -16,9 +16,12 @@
       <link rel='shortcut icon' type='image/x-icon' href='../favicon.ico' />
       <title>EC Learning</title>
       <link href="../css/bootstrap.min.css" rel="stylesheet">
-       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+      <link href="../css/dataTables.bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
       <link href="../css/global.css" rel="stylesheet">
       <script src="../js/jquery-2.2.4.min.js"></script>
+      <script src="../js/jquery.dataTables.min.js"></script>
+      <script src="../js/dataTables.bootstrap.min.js"></script> 
       <script src="../js/angular.min.js"></script>
       <script src="../js/bootstrap.min.js"></script>
       <script src="../js/ec.js"></script>
@@ -28,17 +31,34 @@
     <!--This is the HEADER-->
     <?PHP include_once('echeader.php'); ?>
         <div class="container">
+            <span class="textTitle">User Management</span><hr>
             <div class="row content">
                 <div class="col-xs-12 col-sm-12 col-lg-12 text-left">
-                    <span class="textTitle">User Management</span><hr>
-                    <table>
-                      <tr ng-repeat="user in userList">
-                          <td>{{ user.id }}</td>
-                          <td>{{ user.lname }}</td>
-                          <td>{{ user.mname }}</td>
-                          <td>{{ user.fname }}</td>
-                      </tr>
-                    </table>
+                    <div class="divButtons">
+                         <input type="button" class ="btnUser" value="Add New">
+                    </div>
+                    <div class="table-responsive">
+                        <table id="userTbl" class="table table-striped table-bordered" cellspacing="0" width="100%">
+                          <thead>
+                            <tr>
+                                <th></th>
+                                <th>Name</th>
+                                <th>Username</th>
+                                <th>Type</th>
+                                <th>Status</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                          <tr ng-repeat="user in userList">
+                              <td id="{{ user.id }}" class="alignCenter"><input type="checkbox" class="chkOk"></td>
+                              <td>{{ user.fname }} {{user.mname}} {{user.lname}}</td>
+                              <td>{{ user.username }}</td>
+                              <td>{{ user.usertype }}</td>
+                              <td class="alignCenter"><input type="checkbox" disabled="true" checked="{{ user.status }}" class="chkOk"></td>
+                          </tr>
+                          </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
