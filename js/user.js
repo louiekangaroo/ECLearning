@@ -51,6 +51,18 @@ user.controller('addeditUserCtrl',  ['$scope', '$http', 'userService', function 
             $("#txtPassword").css("border","1px solid rgb(255, 77, 77)");
             isValid = false;   
         }
+        if($('#txtFirstName').val() == "") {
+            $("#txtFirstName").css("border","1px solid rgb(255, 77, 77)");
+            isValid = false; 
+        }
+         if($('#txtLastName').val() == "") {
+            $("#txtLastName").css("border","1px solid rgb(255, 77, 77)");
+            isValid = false; 
+        }
+         if($('#txtEmail').val() == "") {
+            $("#txtEmail").css("border","1px solid rgb(255, 77, 77)");
+            isValid = false; 
+        }
         
         return isValid;
         
