@@ -35,6 +35,8 @@ user.controller('addeditUserCtrl',  ['$scope', '$http', 'userService', function 
     $(".btnSave").click(function() {
         if (!validateUser()) {
             alert('Please fill out blank fields.');   
+        } else {
+        saveUser();
         }
     });
     
@@ -65,6 +67,36 @@ user.controller('addeditUserCtrl',  ['$scope', '$http', 'userService', function 
         }
         
         return isValid;
+        
+    }
+    
+      function saveUser() {
+        var username =  $("#txtUsername").val();
+        var password = $("#txtPassword").val();
+        var fname = $("#txtFirstName").val();
+        var mname = $("#txtMiddleName").val();
+        var lname = $("#txtLastName").val();
+        var address = $("#txtAddress").val();
+        var contact = $("#txtContactNo").val();
+        var email = $("#txtEmail").val();
+        var utype = $("#txtUserType option:selected").text(); 
+        var isactive = $("#txtIsActive").val();
+        if (isactive == 'on')
+        {
+         isactive = 0;   
+        }else{
+            isactive = 1;
+        }
+        var myUrl = '../controllers/saveuser.php';
+        
+        $http({
+            url: myUrl, 
+            method: "GET",
+            params: { uname: username,pword: password,fname: fname,mname: mname,lname: lname,address: address,contact: contact,email: email,type: utype,isactive: isactive }
+        }).success(function(data) {
+            $scope.user = data[0];
+            
+    	});
         
     }
     

@@ -21,7 +21,8 @@ include_once("../views/menuinterface.php");
     $qanswer = $_GET['questioanswer'];
 
     $sql = "UPDATE studentsession SET answer='$qanswer' WHERE id='$qid'"; 
-    echo 'Thanks for taking the Review Session';
+
+    //echo 'Thanks for taking the Review Session';
     //$sqlscript = "call insertIntoTestHistory('$StudentID')";
     ExecuteNoneQuery($sql); 
 ?>
