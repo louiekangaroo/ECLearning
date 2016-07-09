@@ -14,7 +14,7 @@
                 <ul class='dropdown-menu'>
                     <li><a href='usermanagement.php'>User Management</a></li>
                     <li><a href='#'>Question Bank</a></li>
-                    <li><a href='#'>Manage Exam</a></li>
+                    <li><a href='testconfig.php'>Manage Exam</a></li>
                 </ul>
             </li>
             <li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'>Manage Study Materials</b></a></li>

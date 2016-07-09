@@ -317,6 +317,36 @@ input[type=radio]:not(old):checked + label > span > span{
     background: #fff;
 }
 
+/*TEST CONFIG------------------------------------*/
+.btnConfig {
+    box-sizing: border-box;
+    background-color: #ffffff !important;
+    height: 35px !important;
+    border: 1px solid #0095d3 !important;
+    margin-bottom: 5px !important;
+    min-width: 80px;
+}
+
+
+#testConfigTbl {
+    background-color: whitesmoke;   
+}
+
+#testConfigTbl thead {
+    background-color: #4e81c0 !important;
+    color: #fff;
+}
+
+#testConfigTbl thead th { 
+    font-weight: 100; 
+    font-size: 18px;
+    text-align: center;
+}
+
+#configTbl > tbody > tr {
+    margin-bottom: 5px;
+}
+
 /*FOOTER-----------------------------------------*/
 
 footer {
@@ -443,6 +473,18 @@ footer span {
         display: none;
     }
     
+    #testConfigTbl thead th:nth-child(2),
+    #testConfigTbl tbody td:nth-child(2),
+    #testConfigTbl thead th:nth-child(3),
+    #testConfigTbl tbody td:nth-child(3),
+    #testConfigTbl thead th:nth-child(4),
+    #testConfigTbl tbody td:nth-child(4),
+    #testConfigTbl thead th:nth-child(5),
+    #testConfigTbl tbody td:nth-child(5)
+    {
+        display: none   
+    }
+    
     #userDiv {
         overflow: auto;   
     }
@@ -453,6 +495,18 @@ footer span {
     #userTbl thead th:nth-child(2),
     #userTbl tbody td:nth-child(2){
         display: none;
+    }
+    
+    #testConfigTbl thead th:nth-child(2),
+    #testConfigTbl tbody td:nth-child(2),
+    #testConfigTbl thead th:nth-child(3),
+    #testConfigTbl tbody td:nth-child(3),
+    #testConfigTbl thead th:nth-child(4),
+    #testConfigTbl tbody td:nth-child(4),
+    #testConfigTbl thead th:nth-child(5),
+    #testConfigTbl tbody td:nth-child(5)
+    {
+        display: none   
     }
     
     #userDiv {
