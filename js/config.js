@@ -37,6 +37,7 @@ config.controller('getConfigCtrl',  ['$scope', '$http', 'configService', functio
         configService.goToPage("questionlist.php");
     }
     
+    
 }]);
 
 config.controller('addConfigCtrl',  ['$scope', '$http', 'configService', function ($scope, $http, configService) 
@@ -188,7 +189,9 @@ config.controller('editConfigCtrl',  ['$scope', '$http', 'configService', functi
 
 config.controller('questionListCtrl',  ['$scope', '$http', 'configService', function ($scope, $http, configService) {
         
-        loadQuestionList(1);
+       var myid = sessionStorage.getItem('configId');
+    
+       loadQuestionList(myid);
     
         function loadQuestionList(tId) {
             
@@ -197,17 +200,48 @@ config.controller('questionListCtrl',  ['$scope', '$http', 'configService', func
             $http({
             url: myUrl, 
             method: "GET",
-            params: { testid: parseInt(tId) }
+            params: { testid: parseInt(myid) }
             }).success(function(data) {
                 $scope.questionLists = data;
             });
             
         }
     
+       $(".btnSave").click(function() {
+
+        saveTest();
+        });
+    
+    
         $(".testtype").change(function() {
             var ttype = $("select[name='testtype']").val();
             loadQuestionList(ttype);
                 
         });
+    
+    function saveTest() {
+        var myid = sessionStorage.getItem('configId');
+        var questionID = '';
+        $('[name="chkb[]"]:checked').each(function () {
+            var arr = $(this).val().split(':');
+            questionID += arr + ",";
+        });
+        
+        questionID =  questionID.substring(0, questionID.length - 1);
+    
+        
+        var myUrl = '../controllers/savetestconfig.php';
+        
+        $http({
+            url: myUrl, 
+            method: "GET",
+            params: { qID: questionID,testtype: myid}
+        }).success(function(data) {
+            $scope.$apply;
+            configService.goToPage("testconfig.php");
+    	});
+    }
+    
+    
     
 }]);
