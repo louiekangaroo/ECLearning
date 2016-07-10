@@ -373,6 +373,26 @@ input[type=radio]:not(old):checked + label > span > span{
     border-radius: 30px;
 }
 
+/*TOPIC------------------------------------------*/
+#topicTbl {
+    background-color: whitesmoke;   
+}
+
+#topicTbl thead {
+    background-color: #4e81c0 !important;
+    color: #fff;
+}
+
+#topicTbl thead th { 
+    font-weight: 100; 
+    font-size: 18px;
+    text-align: center;
+}
+
+#topicTbl {
+    margin-bottom: 200px;   
+}
+
 /*FOOTER-----------------------------------------*/
 
 footer {
