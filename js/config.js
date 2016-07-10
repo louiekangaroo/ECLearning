@@ -190,7 +190,7 @@ config.controller('editConfigCtrl',  ['$scope', '$http', 'configService', functi
 config.controller('questionListCtrl',  ['$scope', '$http', 'configService', function ($scope, $http, configService) {
         
        var myid = sessionStorage.getItem('configId');
-    
+
        loadQuestionList(myid);
     
         function loadQuestionList(tId) {
@@ -202,7 +202,9 @@ config.controller('questionListCtrl',  ['$scope', '$http', 'configService', func
             method: "GET",
             params: { testid: parseInt(myid) }
             }).success(function(data) {
-                $scope.questionLists = data;
+                $scope.questionLists = data
+            $("select[name='testtype']").val(myid);
+            $("select[name='testtype']").prop("disabled", true);
             });
             
         }
