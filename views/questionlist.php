@@ -57,6 +57,7 @@
                            <div class="list-responsive">
                               <ul ng-repeat="question in questionLists" style="list-style: none;">
                                  <li>
+                                    <label>{{question.level}}</label>
                                     <input type="checkbox" name="chkb[]" ng-checked="question.testid" value="{{question.examid}}">
                                     <label for=""><span><span></span></span></label> {{ question.question }}
                                  </li>
