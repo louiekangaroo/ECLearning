@@ -57,15 +57,25 @@
                            <div class="list-responsive">
                               <ul ng-repeat="question in questionLists" style="list-style: none;">
                                  <li>
-                                    <input type="checkbox" name="chkb[]" value="{{question.examid}}">
+                                    <input type="checkbox" name="chkb[]" ng-checked="question.testid" value="{{question.examid}}">
                                     <label for=""><span><span></span></span></label> {{ question.question }}
                                  </li>
                               </ul>
+                              
                            </div>
+                              <div class="form-group clsButtonSaveCancel">
+                                <label class="col-md-4"></label>
+                                <div class="col-md-4">
+                                    <input type="button" class ="btnSave" value="Save" style="float: center; width: 50%;">
+                                </div>
+                               
+                            </div>
                         </div>
                      </div>
+                      
                   </div>
                </div>
+                   
             </div>
          </div>
       </div>
