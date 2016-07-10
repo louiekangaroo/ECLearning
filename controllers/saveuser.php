@@ -1,7 +1,7 @@
 <?PHP
 session_start();
 include_once("../controllers/udf.php");
-include_once("../views/usermanagement.php");
+include_once("../views/menuinterface.php");
 
     $host="localhost"; //hostname
     $username="root";//username
@@ -26,7 +26,7 @@ include_once("../views/usermanagement.php");
     $type = $_GET['type'];
     $isactive = $_GET['isactive'];
   
-$sql = "INSERT INTO personalinfo(lname,mname,fname,address,contactno,emailadd,username,[PASSWORD],usertype,[STATUS]) VALUES ($lname,$mname,$fname,$address,$contact,$email,$uname,$pword,$type,$isactive);";
+$sql = "INSERT INTO personalinfo(lname,mname,fname,address,contactno,emailadd,username,password,usertype,status) VALUES ('$lname','$mname','$fname','$address','$contact','$email','$uname','$pword','$type',$isactive);";
     //echo 'Thanks for taking the Review Session';
     //$sqlscript = "call insertIntoTestHistory('$StudentID')";
     //VALUES ('1','1','1','aaa','22','33','aa','aa','admin','1');

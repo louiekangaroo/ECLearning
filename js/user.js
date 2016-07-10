@@ -79,7 +79,7 @@ user.controller('addeditUserCtrl',  ['$scope', '$http', 'userService', function 
         var address = $("#txtAddress").val();
         var contact = $("#txtContactNo").val();
         var email = $("#txtEmail").val();
-        var utype = $("#txtUserType option:selected").text(); 
+        var utype = $("select[name='txtUserType']").val(); 
         var isactive = $("#txtIsActive").val();
         if (isactive == 'on')
         {
@@ -94,10 +94,9 @@ user.controller('addeditUserCtrl',  ['$scope', '$http', 'userService', function 
             method: "GET",
             params: { uname: username,pword: password,fname: fname,mname: mname,lname: lname,address: address,contact: contact,email: email,type: utype,isactive: isactive }
         }).success(function(data) {
-            $scope.user = data[0];
-            
+            $scope.$apply;
+            userService.goToPage("usermanagement.php");
     	});
-        
     }
     
 }]);

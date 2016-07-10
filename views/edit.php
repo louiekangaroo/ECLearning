@@ -39,8 +39,8 @@
                                 <label for="txtTestType" class="col-md-6 control-label txtLabel">Test Type:</label>
                                 <div class="col-md-6">
                                     <select id="idTestType" name="testtype" class="form-control">
-                                      <option value="1">Post-Test</option>
-                                      <option value="2">Pre-Test</option>
+                                      <option value="1">Pre-Test</option>
+                                      <option value="2">Post-Test</option>
                                       <option value="3">Short Quiz</option>
                                       <option value="4">Long Quiz</option>
                                       <option value="5">Major Exam</option>

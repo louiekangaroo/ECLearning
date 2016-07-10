@@ -33,7 +33,8 @@ config.controller('getConfigCtrl',  ['$scope', '$http', 'configService', functio
     }
     
     $scope.btnConfigure = function(id) {
-        alert(id);   
+         sessionStorage.setItem('configId', id);
+        configService.goToPage("questionlist.php");
     }
     
 }]);
@@ -109,13 +110,13 @@ config.controller('editConfigCtrl',  ['$scope', '$http', 'configService', functi
         }).success(function(data) {
              var config = data[0];
             switch (config.topicname) {
-                case "Post-Test":
+                case "Pre-Test":
                     testtypeid = 1;
                     break;
-                case "Pre-Test":
+                case "Post-Test":
                     testtypeid = 2;
                     break;
-                case "Short Quiz":
+                case "Short-Quiz":
                     testtypeid = 3;
                     break;
                 case "Long Quiz":
@@ -182,5 +183,31 @@ config.controller('editConfigCtrl',  ['$scope', '$http', 'configService', functi
         return isValid;
         
     }
+    
+}]);
+
+config.controller('questionListCtrl',  ['$scope', '$http', 'configService', function ($scope, $http, configService) {
+        
+        loadQuestionList(1);
+    
+        function loadQuestionList(tId) {
+            
+            var myUrl = '../controllers/getquestionlist.php';
+            
+            $http({
+            url: myUrl, 
+            method: "GET",
+            params: { testid: parseInt(tId) }
+            }).success(function(data) {
+                $scope.questionLists = data;
+            });
+            
+        }
+    
+        $(".testtype").change(function() {
+            var ttype = $("select[name='testtype']").val();
+            loadQuestionList(ttype);
+                
+        });
     
 }]);

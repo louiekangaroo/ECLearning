@@ -347,6 +347,32 @@ input[type=radio]:not(old):checked + label > span > span{
     margin-bottom: 5px;
 }
 
+#questionListTbl {
+    background-color: whitesmoke;   
+}
+
+.tdQUestion {
+    font-size: 11px;   
+}
+
+#questionListTbl thead {
+    background-color: #4e81c0 !important;
+    color: #fff;
+}
+
+#questionListTbl thead th { 
+    font-weight: 100; 
+    font-size: 18px;
+    text-align: center;
+}
+
+.list-responsive {
+    background-color: rgba(245, 245, 245, 0.80);
+    padding: 30px 8px 30px 0px;
+    margin-bottom: 100px;
+    border-radius: 30px;
+}
+
 /*FOOTER-----------------------------------------*/
 
 footer {

@@ -108,7 +108,7 @@
                             <div class="form-group">
                                 <label for="txtUserType" class="col-md-4 control-label txtLabel">User Type:</label>
                                 <div class="col-md-8">
-                                    <select id="txtUserType" class="form-control">
+                                    <select name="txtUserType" class="form-control">
                                         <option>Admin</option>
                                         <option>Teacher</option>
                                         <option>Student</option>
