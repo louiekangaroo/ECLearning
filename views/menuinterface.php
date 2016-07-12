@@ -15,7 +15,6 @@
                     <li><a href='usermanagement.php'>User Management</a></li>
                     <li><a href='#'>Question Bank</a></li>
                     <li><a href='testconfig.php'>Manage Exam</a></li>
-                    <li><a href='topicconfig.php'>Manage Topics</a></li>
                 </ul>
             </li>
             <li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'>Manage Study Materials</b></a></li>
@@ -36,8 +35,8 @@
             <li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'>Report Management <b class='caret'></b></a>
                 <ul class='dropdown-menu'>
                     <li><a href='#'>Course Master List</a></li>
-                    <li><a href='#'>Performance Report</a></li>
-                    <li><a href='#'>Test / Exam Keys</a></li>
+                    <li><a href='perfanalysis.php'>Performance Report</a></li>
+                    <li><a href='testconfig.php'>Test / Exam Keys</a></li>
                     <li><a href='#'>Student Log Report</a></li>
                </ul>
             </li>";

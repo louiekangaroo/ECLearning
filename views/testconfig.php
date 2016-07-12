@@ -56,6 +56,8 @@
                               <td class="alignCenter">
                                   <input type="button" ng-click="btnConfigure(test.id)" class="btnConfig" value="Configure" />
                                   <input type="button" ng-click="btnEdit(test.id)" class="btnConfig" value="Edit" />
+                                  <!-- <input type="button" ng-click="btnPrintList(test.id)" class="btnConfig" value="PrintList" />  -->
+                                  <a href="printlist.php?testid={{ test.id }}" target="_blank">Print</a>
                               </td>
                           </tr>
                           </tbody>

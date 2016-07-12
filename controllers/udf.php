@@ -13,6 +13,26 @@ function cleanMe($input){
    return $input;
 }
 
+function GetIP(){
+    if ( getenv("HTTP_CLIENT_IP") ) {
+        $ip = getenv("HTTP_CLIENT_IP");
+    } elseif ( getenv("HTTP_X_FORWARDED_FOR") ) {
+        $ip = getenv("HTTP_X_FORWARDED_FOR");
+        if ( strstr($ip, ',') ) {
+            $tmp = explode(',', $ip);
+            $ip = trim($tmp[0]);  //IP address
+            //$ip = trim($tmp[1]);  //
+        }
+    } else {
+        $ip = getenv("REMOTE_ADDR");
+    }
+    return $ip;
+/*
+Usage :
+
+$IP = GetIP(); or directly GetIP();
+*/
+}
 
 function ValidUser(){
 	$good = false;
@@ -72,13 +92,14 @@ function ChkUserLogin($vUserID,$vUserPassword){
 	$_SESSION['username']	='';
 	$_SESSION['usertype']	='';
 
-
+    $_SESSION['userIP']     ='';
+    
 	$_SESSION['wholename'] 			= '';
 	//<meta http-equiv='refresh' content='10; URL=main.html'>
 
 	$UserQuery = 'NO QUERY';
 	
-	$UserQuery = "SELECT * FROM personalinfo t where username='$vuid' and password = '$vupwd' and status='1';";
+	$UserQuery = "SELECT * FROM personalinfo t where username='$vuid' and password = '$vupwd' and status='0';";
 
 	//die($UserQuery);
 	
@@ -102,16 +123,24 @@ function ChkUserLogin($vUserID,$vUserPassword){
 				$_SESSION['status']		=stripslashes($row['status']);	
 				$_SESSION['username']	=stripslashes($row['username']);
 				$_SESSION['usertype']	=stripslashes($row['usertype']);
-
+                
+                $_SESSION['userIP']     = GetIP();
+                
 				$_SESSION['wholename']		= 	trim($_SESSION['lname']) . ', '.trim($_SESSION['fname']). ' '.trim($_SESSION['mname']);	
 				$vfound = true;
 				++$i; 
 		}
-		
 	}
+    $vUserIP = $_SESSION['userIP'];
+    $vUserStatus = '';
 	if($i>0) {
 		$vfound = true;
 		SaveLog($vuid.'/'.$_SESSION['wholename'],"Good Login");
+        // update personalinfo set status = 1, ipaddress ='', DateTImeActive=now() where username='$vuid' and password = '$vupwd' and status='0';
+        $vUserStatus = "update personalinfo set status = 1, ipaddress ='$vUserIP', DateTImeActive=now() where username='$vuid' and password = '$vupwd' and status='0';";
+        //die ($vUserStatus);
+        $vfount = ExecuteNoneQuery($vUserStatus);   // to update personalinfo status and datetime logged in
+        
 	}
 return $vfound;
 } // END OF chkuserlogin

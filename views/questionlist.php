@@ -68,6 +68,7 @@
                                 <label class="col-md-4"></label>
                                 <div class="col-md-4">
                                     <input type="button" class ="btnSave" value="Save" style="float: center; width: 50%;">
+                                    <!-- <a href="printlist.php?testid={{ test.id }}" target="_blank">PrintSelection</a> -->
                                 </div>
                                
                             </div>
