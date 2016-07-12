@@ -46,11 +46,11 @@
                           </thead>
                           <tbody>
                           <tr ng-repeat="topic in getTopicList">
-                              <td>{{topic.studyname}}</td>
+                              <td ng-class="{bold: topic.isparent == 1}">{{topic.studyname}}</td>
                               <td><input type="checkbox" disabled="true" ng-checked="{{ topic.isparent }}" class="chkOk"></td>
                               <td>{{topic.parentid}}</td>
                               <td class="alignCenter">
-                                    <input type="button" ng-click="btnEditTopic(topid.id)" class="btnConfig" value="Edit" />
+                                    <input type="button" ng-click="btnEditTopic(topic.id)" class="btnConfig" value="Edit" />
                               </td>
                           </tr>
                           </tbody>

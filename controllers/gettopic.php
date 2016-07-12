@@ -15,15 +15,17 @@ include_once("../views/menuinterface.php");
         die("Connection failed: " . mysqli_connect_error());
 	}   
 
-    $topictype = $_GET['ttype']; 
-    $subtopid = $_GET['subtopic'];
-    $topicname = $_GET['tname'];
+    $id = $_GET['suid']; 
 
-    if($topictype == 0){
-        $sql = "INSERT INTO studyunits(studyname,isparent,parentid) VALUES ('$topicname','1','0')";
-    } else {
-        $sql = "INSERT INTO studyunits(topicid, studyname,isparent,parentid) VALUES ('$subtopid','$topicname','0','$subtopid')";
-    }
+  	$sql = "SELECT * FROM studyunits where id ='$id'"; 
     
-    ExecuteNoneQuery($sql); 
+    $result = mysqli_query($con, $sql);
+          
+    $rows = array();
+    while($r = mysqli_fetch_assoc($result)) {
+        $rows[] = $r;
+    }
+
+    print json_encode($rows);
+
 ?>

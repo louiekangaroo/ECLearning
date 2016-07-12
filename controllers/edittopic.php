@@ -15,15 +15,10 @@ include_once("../views/menuinterface.php");
         die("Connection failed: " . mysqli_connect_error());
 	}   
 
-    $topictype = $_GET['ttype']; 
-    $subtopid = $_GET['subtopic'];
-    $topicname = $_GET['tname'];
-
-    if($topictype == 0){
-        $sql = "INSERT INTO studyunits(studyname,isparent,parentid) VALUES ('$topicname','1','0')";
-    } else {
-        $sql = "INSERT INTO studyunits(topicid, studyname,isparent,parentid) VALUES ('$subtopid','$topicname','0','$subtopid')";
-    }
-    
+    $studname = $_GET['topic'];
+    $id = $_GET['id'];
+        
+    $sql = "UPDATE studyunits SET studyname='$studname' WHERE id='$id'"; 
+    //$sqlscript = "call insertIntoTestHistory('$StudentID')";
     ExecuteNoneQuery($sql); 
 ?>

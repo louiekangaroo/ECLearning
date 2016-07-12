@@ -204,6 +204,10 @@ input[type=radio]:not(old):checked + label > span > span{
     width: 250px;
 }
 
+.bold {
+    font-weight: bold;   
+}
+
 /*QA------------------------------------------*/
 .qaDiv {
     background-color: rgba(245, 245, 245, 0.80);
