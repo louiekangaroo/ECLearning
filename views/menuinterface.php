@@ -21,8 +21,8 @@
             <li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'>Report Management <b class='caret'></b></a>
                 <ul class='dropdown-menu'>
                     <li><a href='#'>Course Master List</a></li>
-                    <li><a href='#'>Performance Report</a></li>
-                    <li><a href='#'>Test / Exam Keys</a></li>
+                    <li><a href='perfanalysis.php' target='_blank'>Performance Report</a></li>
+                    <li><a href='testconfig.php'>Test / Exam Keys</a></li>
                     <li><a href='#'>Student Log Report</a></li>
                     <li><a href='#'>Teachers Log Report</a></li>
                </ul>
@@ -35,7 +35,7 @@
             <li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'>Report Management <b class='caret'></b></a>
                 <ul class='dropdown-menu'>
                     <li><a href='#'>Course Master List</a></li>
-                    <li><a href='perfanalysis.php'>Performance Report</a></li>
+                    <li><a href='perfanalysis.php' target='_blank'>Performance Report</a></li>
                     <li><a href='testconfig.php'>Test / Exam Keys</a></li>
                     <li><a href='#'>Student Log Report</a></li>
                </ul>
