@@ -29,7 +29,6 @@
     <?PHP include_once('ecfooter.php'); ?>
        
        <?PHP 
-	   		echo $_SESSION['userIP'] . ' - '. $_SERVER['REMOTE_ADDR']; 
 	   		DisplayAlert("Under Maintenance\nSorry for the inconvinience...");
 	   ?>
        

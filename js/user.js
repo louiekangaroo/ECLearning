@@ -25,7 +25,8 @@ user.controller('getUserListCtrl',  ['$scope', '$http', 'userService', function 
     
     
     $scope.btnEditUser = function(id) {
-        alert(id);
+        userService.goToPage("addedituser.php");
+        sessionStorage.setItem('editId', id);
     }
     
     $scope.btnDeleteUser = function(id) {
@@ -56,15 +57,25 @@ user.controller('getUserListCtrl',  ['$scope', '$http', 'userService', function 
 
 user.controller('addeditUserCtrl',  ['$scope', '$http', 'userService', function ($scope, $http, userService) 
 {
+   var editId = sessionStorage.getItem('editId');
    var manageType = sessionStorage.getItem('manageType');
    $(".clsType").html(manageType);
+    
+    //This is for edit
+    if (editId > 0) {
+        loadEditUser(editId);
+    }
     
     
     $(".btnSave").click(function() {
         if (!validateUser()) {
             alert('Please fill out blank fields.');   
         } else {
-        saveUser();
+            if (editId > 0) {
+                updateUser(editId);
+            } else {
+                saveUser();
+            }
         }
     });
     
@@ -125,6 +136,61 @@ user.controller('addeditUserCtrl',  ['$scope', '$http', 'userService', function 
             $scope.$apply;
             userService.goToPage("usermanagement.php");
     	});
+    }
+    
+    function updateUser(id) {
+        var username =  $("#txtUsername").val();
+        var password = $("#txtPassword").val();
+        var fname = $("#txtFirstName").val();
+        var mname = $("#txtMiddleName").val();
+        var lname = $("#txtLastName").val();
+        var address = $("#txtAddress").val();
+        var contact = $("#txtContactNo").val();
+        var email = $("#txtEmail").val();
+        var utype = $("select[name='txtUserType']").val(); 
+        var isactive = $("#txtIsActive").val();
+        if (isactive == 'on')
+        {
+         isactive = 0;   
+        }else{
+            isactive = 1;
+        }
+        var myUrl = '../controllers/updateuser.php';
+        
+        $http({
+            url: myUrl, 
+            method: "GET",
+            params: { uid: id, uname: username,pword: password,fname: fname,mname: mname,lname: lname,address: address,contact: contact,email: email,type: utype,isactive: isactive }
+        }).success(function(data) {
+            $scope.$apply;
+            userService.goToPage("usermanagement.php");
+    	});
+    }
+    
+    function loadEditUser(editId) {
+     
+        var myUrl = '../controllers/loadedituser.php';
+        
+        $http({
+            url: myUrl, 
+            method: "GET",
+            params: { id: editId }
+        }).success(function(data) {
+            $("#txtUsername").val(data[0].username);
+            $("#txtUsername").prop("disabled",true);
+            $("#txtPassword").val(data[0].password);
+            $("#txtFirstName").val(data[0].fname);
+            $("#txtMiddleName").val(data[0].mname);
+            $("#txtLastName").val(data[0].lname);
+            $("#txtAddress").val(data[0].address);
+            $("#txtContactNo").val(data[0].contactno);
+            $("#txtEmail").val(data[0].emailadd);
+            
+            $("#txtIsActive").prop("checked", parseInt(data[0].status));
+            
+            $("select[name='txtUserType']").val(data[0].usertype);
+    	});
+        
     }
     
     $(".btnCancel").click(function() {

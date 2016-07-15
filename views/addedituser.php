@@ -109,9 +109,9 @@
                                 <label for="txtUserType" class="col-md-4 control-label txtLabel">User Type:</label>
                                 <div class="col-md-8">
                                     <select name="txtUserType" class="form-control">
-                                        <option>Admin</option>
-                                        <option>Teacher</option>
-                                        <option>Student</option>
+                                        <option value="Admin">Admin</option>
+                                        <option value="Teacher">Teacher</option>
+                                        <option value="Student">Student</option>
                                     </select>
                                 </div>
                             </div>
