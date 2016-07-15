@@ -1,0 +1,1 @@
+-We need to add configuration of questions per subject inside test type.
