@@ -27,7 +27,7 @@ include_once("../views/menuinterface.php");
     $type = $_GET['type'];
     $isactive = $_GET['isactive'];
   
-    $sql = "UPDATE personalinfo SET lname = '$lname', mname = '$mname', fname = '$fname', address = '$address', contactno = '$contact', emailadd = '$email', password = '$pword', usertype = '$type', status = '$isactive' WHERE id = '$uid'";
+    $sql = "UPDATE personalinfo SET lname = '$lname', mname = '$mname', fname = '$fname', address = '$address', contactno = '$contact', emailadd = '$email', password = '$pword', usertype = '$type', status = '$isactive' WHERE id = '$uid";
 
     //echo 'Thanks for taking the Review Session';
     //$sqlscript = "call insertIntoTestHistory('$StudentID')";

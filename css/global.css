@@ -415,6 +415,23 @@ input[type=radio]:not(old):checked + label > span > span{
     margin-bottom: 200px;   
 }
 
+/*FINISH-----------------------------------------*/
+
+#studNo {
+    
+}
+
+#finishBody {
+    background: #fff;
+    padding: 20px;
+    border: 10px solid #4e81c0;
+    margin-bottom: 50px;
+}
+
+.underMaintenance {
+    font-size: 28px;
+}
+
 /*FOOTER-----------------------------------------*/
 
 footer {

@@ -25,12 +25,17 @@
    <body class="indexBody">
     <!--This is the HEADER-->
     <?PHP include_once('echeader.php'); ?>
+       <div class="container">
+            <div class="row content">
+                <div class="col-sm-12 col-lg-12">
+                    <div style="text-align:center; margin-top:120px;">
+                        <span class="underMaintenance red">Under Maintenance! Sorry for the inconvenience.</span>
+                    </div>
+                </div>
+           </div>
+       </div>
+    
     <!--This is the FOOTER-->
     <?PHP include_once('ecfooter.php'); ?>
-       
-       <?PHP 
-	   		DisplayAlert("Under Maintenance\nSorry for the inconvinience...");
-	   ?>
-       
    </body>
 </html>
