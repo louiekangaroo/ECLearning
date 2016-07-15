@@ -1,0 +1,4 @@
+Type of Test = sessionStorage.getItem("sessionType");
+
+0 - Study Units / 1- Test Units = sessionType
+1- Pre-Test / 2- Post-Test = sessionTopic
