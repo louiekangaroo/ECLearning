@@ -24,6 +24,34 @@ user.controller('getUserListCtrl',  ['$scope', '$http', 'userService', function 
     });
     
     
+    $scope.btnEditUser = function(id) {
+        alert(id);
+    }
+    
+    $scope.btnDeleteUser = function(id) {
+         var myUrl = '../controllers/deleteuser.php';
+        
+        var r = confirm("Are you sure you want to delete this?");
+        if (r == true) {
+            $http({
+            url: myUrl, 
+            method: "GET",
+            params: { userid: id }
+        }).success(function(data) {
+            if (data.length == 4) {
+                $scope.$apply;
+                userService.goToPage("usermanagement.php");
+            } else {
+                alert(data);
+            }   
+    	});
+        } else {
+            return false;
+        }
+        
+        
+    }
+    
 }]);
 
 user.controller('addeditUserCtrl',  ['$scope', '$http', 'userService', function ($scope, $http, userService) 
@@ -98,5 +126,9 @@ user.controller('addeditUserCtrl',  ['$scope', '$http', 'userService', function 
             userService.goToPage("usermanagement.php");
     	});
     }
+    
+    $(".btnCancel").click(function() {
+        userService.goToPage("usermanagement.php"); 
+    });
     
 }]);

@@ -103,7 +103,7 @@ input[disabled] {
 
 .textTitle {
     font-size: 30px;
-    color: #656565;
+    color: #ffffff;
 }
 
 input[type=checkbox]:not(old),
@@ -181,6 +181,24 @@ input[type=radio]:not(old):checked + label > span > span{
 
 .alignCenter {
     text-align: center;
+}
+
+.btnLink {
+    margin: 0px 3px 0px 3px;
+    cursor: pointer;
+    color: blue;
+}
+
+.pLink {
+    margin: 0px 0 -20px !important;   
+}
+
+.blue {
+    color: #4e81c0;   
+}
+
+.red {
+    color: #ff5858;   
 }
 
 /*LOGIN------------------------------------------*/
@@ -518,9 +536,16 @@ footer span {
         font-size: 10px;   
     }
     
-    #userTbl thead th:nth-child(2),
-    #userTbl tbody td:nth-child(2){
+    #userTbl thead th:nth-child(1),
+    #userTbl tbody td:nth-child(1){
         display: none;
+    }
+
+    #topicTbl thead th:nth-child(2),
+    #topicTbl tbody td:nth-child(2),
+    #topicTbl thead th:nth-child(3),
+    #topicTbl tbody td:nth-child(3) {
+        display: none;   
     }
     
     #testConfigTbl thead th:nth-child(2),
@@ -542,9 +567,16 @@ footer span {
 }
 
 @media (max-width: 515px) {
-    #userTbl thead th:nth-child(2),
-    #userTbl tbody td:nth-child(2){
+    #userTbl thead th:nth-child(1),
+    #userTbl tbody td:nth-child(1){
         display: none;
+    }
+    
+    #topicTbl thead th:nth-child(2),
+    #topicTbl tbody td:nth-child(2),
+    #topicTbl thead th:nth-child(3),
+    #topicTbl tbody td:nth-child(3) {
+        display: none;   
     }
     
     #testConfigTbl thead th:nth-child(2),

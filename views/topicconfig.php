@@ -40,7 +40,6 @@
                             <tr>
                                 <th>Study Name</th>
                                 <th>Is Parent</th>
-                                <th>Parent ID</th>
                                 <th></th>
                             </tr>
                           </thead>
@@ -48,10 +47,12 @@
                           <tr ng-repeat="topic in getTopicList">
                               <td ng-class="{bold: topic.isparent == 1}">{{topic.studyname}}</td>
                               <td><input type="checkbox" disabled="true" ng-checked="{{ topic.isparent }}" class="chkOk"></td>
-                              <td>{{topic.parentid}}</td>
                               <td class="alignCenter">
-                                    <input type="button" ng-click="btnEditTopic(topic.id)" class="btnConfig" value="Edit" />
+                                  <p class="pLink">
+                                      <span class="btnLink blue glyphicon glyphicon-pencil" ng-click="btnEditTopic(topic.id)"></span>
+                                  </p> 
                               </td>
+                              
                           </tr>
                           </tbody>
                         </table>

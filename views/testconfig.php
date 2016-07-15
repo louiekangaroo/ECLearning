@@ -54,11 +54,12 @@
                               <td class="alignCenter">{{ test.itemsdifficult }}</td>
                               <td class="alignCenter"><input type="checkbox" disabled="disable" ng-checked="test.israndom" class="chkOk"></td>
                               <td class="alignCenter">
-                                  <input type="button" ng-click="btnConfigure(test.id)" class="btnConfig" value="Configure" />
-                                  <input type="button" ng-click="btnEdit(test.id)" class="btnConfig" value="Edit" />
-                                  <!-- <input type="button" ng-click="btnPrintList(test.id)" class="btnConfig" value="PrintList" />  -->
-                                  <a href="printlist.php?testid={{ test.id }}" target="_blank">Print</a>
-                              </td>
+                                  <span class="btnLink blue glyphicon glyphicon-file" ng-click="btnConfigure(test.id)" title="Configure Questions"></span>
+                                  <span class="btnLink blue glyphicon glyphicon-pencil" ng-click="btnEdit(test.id)" title="Edit"></span>
+                                  <span class="btnLink blue glyphicon glyphicon-print" ng-click="btnPrint(test.id)" title="Print Questions"></span>
+                                      
+                                    
+                            
                           </tr>
                           </tbody>
                         </table>

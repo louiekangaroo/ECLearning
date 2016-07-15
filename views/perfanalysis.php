@@ -307,7 +307,7 @@ $vsql ="SELECT  t.topicid,t.subjid,s.studyname,
 
 echo $searchthis;	
 ?>
-    <table width='120%' border='1'>
+    <table width='100%' border='1'>
       <tr>
         <td width='20%' bgcolor="#FFFF00"><?PHP echo $studentQname ?></td>
         <td width='40%' bgcolor="#FFFF00"><?PHP echo $studentname ?></td>

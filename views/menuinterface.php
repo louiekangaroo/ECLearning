@@ -15,6 +15,7 @@
                     <li><a href='usermanagement.php'>User Management</a></li>
                     <li><a href='underconst.php'>Question Bank</a></li>
                     <li><a href='testconfig.php'>Manage Exam</a></li>
+                    <li><a href='topicconfig.php'>Manage Topics</a></li>
                 </ul>
             </li>
             <li class='dropdown'><a href='underconst.php' class='dropdown-toggle' data-toggle='dropdown'>Manage Study Materials</b></a></li>

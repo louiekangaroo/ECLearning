@@ -1,8 +1,10 @@
 var config = angular.module('configModule', []); 
     
 config.service('configService', function() {
-    this.goToPage= function(pageName) {
-        window.location.href = pageName; 
+    this.goToPage= function(pageName, option) {
+        if (option == null) { option = "_self" };
+        //window.location.href = pageName; 
+        window.open(pageName,option);
     }
 });
 
@@ -33,8 +35,12 @@ config.controller('getConfigCtrl',  ['$scope', '$http', 'configService', functio
     }
     
     $scope.btnConfigure = function(id) {
-         sessionStorage.setItem('configId', id);
+        sessionStorage.setItem('configId', id);
         configService.goToPage("questionlist.php");
+    }
+    
+    $scope.btnPrint = function(id) {
+        configService.goToPage("printlist.php?testid=" + id, "_blank");
     }
     
     

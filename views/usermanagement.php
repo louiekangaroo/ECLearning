@@ -38,20 +38,23 @@
                         <table id="userTbl" class="table table-striped table-bordered" cellspacing="0" width="100%">
                           <thead>
                             <tr>
-                                <th></th>
                                 <th>Name</th>
                                 <th>Username</th>
                                 <th>Type</th>
-                                <th>Status</th>
+                                <th></th>
                             </tr>
                           </thead>
                           <tbody>
                           <tr ng-repeat="user in userList">
-                              <td id="{{ user.id }}" class="alignCenter"><input type="checkbox" class="chkOk"></td>
                               <td>{{ user.fname }} {{user.mname}} {{user.lname}}</td>
                               <td>{{ user.username }}</td>
                               <td>{{ user.usertype }}</td>
-                              <td class="alignCenter"><input type="checkbox" disabled="true" checked="{{ user.status }}" class="chkOk"></td>
+                              <td class="alignCenter">
+                                  <p class="pLink">
+                                      <span class="btnLink blue glyphicon glyphicon-pencil" ng-click="btnEditUser(user.id)"></span>
+                                      <span class="btnLink red glyphicon glyphicon-remove" ng-click="btnDeleteUser(user.id)"></span>
+                                  </p> 
+                              </td>
                           </tr>
                           </tbody>
                         </table>
