@@ -17,7 +17,7 @@ include_once("../views/menuinterface.php");
     
     $tcid = $_GET['id'];
 
-  	$sql = "SELECT tc.id,rt.`topicname`,tc.`itemseasy`,tc.`itemsmoderate`,tc.`itemsdifficult`,tc.`israndom`,tc.testtype
+  	$sql = "SELECT tc.id,tc.subjid,rt.`topicname`,tc.`itemseasy`,tc.`itemsmoderate`,tc.`itemsdifficult`,tc.`israndom`,tc.testtype
             FROM topic_config tc
             INNER JOIN reviewtopic rt ON rt.id = tc.`testtype`
             WHERE tc.id = $tcid"; 

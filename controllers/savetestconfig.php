@@ -17,7 +17,8 @@ include_once("../views/menuinterface.php");
 
     $questionID = $_GET['qID']; 
     $testtypeid = $_GET['testtype'];
-    $sql = "call inserttotable('$questionID','$testtypeid')";
+    $sid = $_GET['subjid'];
+    $sql = "call inserttotable('$questionID','$testtypeid','$sid')";
     //echo 'Thanks for taking the Review Session';
     //$sqlscript = "call insertIntoTestHistory('$StudentID')";
     //VALUES ('1','1','1','aaa','22','33','aa','aa','admin','1');

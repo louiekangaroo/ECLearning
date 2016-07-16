@@ -39,6 +39,7 @@
                           <thead>
                             <tr>
                                 <th>Test Type</th>
+                                <th>Study Name</th>
                                 <th>Number of Easy</th>
                                 <th>Number of Moderate</th>
                                 <th>Number of Difficult</th>
@@ -49,12 +50,13 @@
                           <tbody>
                           <tr ng-repeat="test in testconfig">
                               <td class="alignCenter">{{ test.topicname }}</td>
+                              <td class="alignCenter">{{ test.studyname }}</td>
                               <td class="alignCenter">{{ test.itemseasy }}</td>
                               <td class="alignCenter">{{ test.itemsmoderate }}</td>
                               <td class="alignCenter">{{ test.itemsdifficult }}</td>
                               <td class="alignCenter"><input type="checkbox" disabled="disable" ng-checked="test.israndom" class="chkOk"></td>
                               <td class="alignCenter">
-                                  <span class="btnLink blue glyphicon glyphicon-file" ng-click="btnConfigure(test.id)" title="Configure Questions"></span>
+                                  <span class="btnLink blue glyphicon glyphicon-file" ng-click="btnConfigure(test.testtype,test.subjid)" title="Configure Questions"></span>
                                   <span class="btnLink blue glyphicon glyphicon-pencil" ng-click="btnEdit(test.id)" title="Edit"></span>
                                   <span class="btnLink blue glyphicon glyphicon-print" ng-click="btnPrint(test.id)" title="Print Questions"></span>
                                       

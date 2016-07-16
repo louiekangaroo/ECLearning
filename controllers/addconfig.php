@@ -16,15 +16,16 @@ include_once("../views/menuinterface.php");
 	}   
 
     $ttype = $_GET['testtype'];
+    $sid = $_GET['subjid'];
     $teasy = $_GET['easy'];
     $tmoderate = $_GET['moderate'];
     $tdifficult = $_GET['difficult'];        
         
-    $sql = "select * from topic_config where testtype=$ttype";
+    $sql = "select * from topic_config where subjid=$sid";
     $result = mysqli_query($con, $sql);
 	if (mysqli_num_rows($result) >=1) {
     echo -1;
     } else {
-        mysqli_query($con,"INSERT INTO topic_config(testtype,itemseasy,itemsmoderate,itemsdifficult,israndom) VALUES                        ('$ttype','$teasy','$tmoderate','$tdifficult','0')") or die("".mysql_error());
+        mysqli_query($con,"INSERT INTO topic_config(testtype,subjid,itemseasy,itemsmoderate,itemsdifficult,israndom) VALUES                        ('$ttype','$sid','$teasy','$tmoderate','$tdifficult','0')") or die("".mysql_error());
     }
 ?>

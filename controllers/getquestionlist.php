@@ -16,10 +16,10 @@ include_once("../views/menuinterface.php");
 	}   
     
     $pid = $_GET['testid'];
-
+    $sid = $_GET['subjid'];
     switch ($pid) {
     case 1:
-        $sql = "SELECT qpo.id 'testid', subj.studyname, eq.id 'examid',eq.question, eq.level FROM examquestion eq LEFT OUTER JOIN qpretest qpo ON eq.id = qpo.questionid INNER JOIN studyunits subj ON subj.id = eq.subjid where eq.type = '$pid' ORDER BY subj.id";
+        $sql = "SELECT qpo.id 'testid', subj.studyname, eq.id 'examid',eq.question, eq.level FROM examquestion eq LEFT OUTER JOIN qpretest qpo ON eq.id = qpo.questionid INNER JOIN studyunits subj ON subj.id = eq.subjid where eq.type = '$pid' AND eq.subjid = '$sid' ORDER BY subj.id";
         break;
     case 2:
          $sql = "SELECT qpo.id 'testid',eq.id 'examid',eq.question, eq.level FROM examquestion eq LEFT OUTER JOIN qposttest qpo ON eq.id = qpo.questionid where eq.type = $pid";

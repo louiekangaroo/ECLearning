@@ -49,6 +49,16 @@
                             </div>
                         </div>
                    </div>
+                     <div class="row" style="padding: 0 10px 0 10px">
+                       <div class="form-group">
+                                <label class="col-md-2 control-label txtLabel">Studyname :</label>
+                                <div class="col-md-8">
+                                    <select name="topicval" class="form-control">
+                                         <option ng-repeat="topic in getSubjName" value="{{topic.id}}">{{topic.studyname}}</option>
+                                    </select>
+                                </div>
+                       </div>
+                   </div>
                    <div class="row" style="padding: 0 10px 0 10px">
                         <div class="col-sm-6 col-lg-4">
                             <div class="form-group">

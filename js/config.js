@@ -12,7 +12,7 @@ config.controller('getConfigCtrl',  ['$scope', '$http', 'configService', functio
 {
     
     loadTestConfig();
-      
+  
     function loadTestConfig() {
     	$http({method: 'GET', url: '../controllers/gettestconfig.php'})
  		.success(function(data) {
@@ -25,6 +25,7 @@ config.controller('getConfigCtrl',  ['$scope', '$http', 'configService', functio
     	});
     }
     
+
     $('#btnCreateNew').click(function() {
         configService.goToPage("add.php"); 
     });
@@ -34,8 +35,9 @@ config.controller('getConfigCtrl',  ['$scope', '$http', 'configService', functio
         configService.goToPage("edit.php"); 
     }
     
-    $scope.btnConfigure = function(id) {
+    $scope.btnConfigure = function(id,sid) {
         sessionStorage.setItem('configId', id);
+        sessionStorage.setItem('subjId', sid);
         configService.goToPage("questionlist.php");
     }
     
@@ -48,10 +50,25 @@ config.controller('getConfigCtrl',  ['$scope', '$http', 'configService', functio
 
 config.controller('addConfigCtrl',  ['$scope', '$http', 'configService', function ($scope, $http, configService) 
 {
+     
+    loadSubjname();
+     function loadSubjname() {
+        
+        var myUrl = '../controllers/getsubjname.php';
+        
+        $http({
+            url: myUrl, 
+            method: "GET"
+        }).success(function(data) {
+           $scope.getSubjName = data;
+    	});
+        
+    }
     
     $scope.saveConfig = function() {
     
         var ttype = $("select[name='testtype']").val();
+        var subTopicId = $("select[name='topicval']").val();
         var itemseasy = $("#easy").val();
         var itemsmoderate = $("#moderate").val();
         var itemsdifficult = $("#difficult").val();
@@ -64,10 +81,10 @@ config.controller('addConfigCtrl',  ['$scope', '$http', 'configService', functio
             $http({
                 url: myUrl, 
                 method: "GET",
-                params: { testtype: ttype,easy: itemseasy, moderate: itemsmoderate, difficult: itemsdifficult }
+                params: { testtype: ttype,easy: itemseasy, moderate: itemsmoderate, difficult: itemsdifficult,subjid: subTopicId }
             }).success(function(data) {
                if (data == -1) {
-                    alert("Test type already exist");   
+                    alert("Studyname already exist");   
                } else {
                     configService.goToPage("testconfig.php");
                    $scope.apply;
@@ -106,6 +123,20 @@ config.controller('editConfigCtrl',  ['$scope', '$http', 'configService', functi
     var testtypeid = 0;
     
     loadConfigEdit(myid);
+    loadSubjname();
+     function loadSubjname() {
+        
+        var myUrl = '../controllers/getsubjname.php';
+        
+        $http({
+            url: myUrl, 
+            method: "GET"
+        }).success(function(data) {
+           $scope.getSubjName = data;
+    	});
+        
+    }
+    
     
      function loadConfigEdit(myid) {
         var myUrl = '../controllers/gettestconfigone.php';
@@ -137,6 +168,8 @@ config.controller('editConfigCtrl',  ['$scope', '$http', 'configService', functi
           
            $("select[name='testtype']").val(testtypeid);
             $("select[name='testtype']").prop('disabled', true);
+             $("select[name='topicval']").val(config.subjid);
+            $("select[name='topicval']").prop('disabled', true);
            $("#easy").val(config.itemseasy);
             $("#moderate").val(config.itemsmoderate);
             $("#difficult").val(config.itemsdifficult);
@@ -147,6 +180,7 @@ config.controller('editConfigCtrl',  ['$scope', '$http', 'configService', functi
     $scope.updateConfig = function() {
         
         var ttype = $("select[name='testtype']").val();
+
         var itemseasy = $("#easy").val();
         var itemsmoderate = $("#moderate").val();
         var itemsdifficult = $("#difficult").val();
@@ -196,7 +230,7 @@ config.controller('editConfigCtrl',  ['$scope', '$http', 'configService', functi
 config.controller('questionListCtrl',  ['$scope', '$http', 'configService', function ($scope, $http, configService) {
         
        var myid = sessionStorage.getItem('configId');
-
+       var sid = sessionStorage.getItem('subjId');      
        loadQuestionList(myid);
     
         function loadQuestionList(tId) {
@@ -206,7 +240,7 @@ config.controller('questionListCtrl',  ['$scope', '$http', 'configService', func
             $http({
             url: myUrl, 
             method: "GET",
-            params: { testid: parseInt(myid) }
+            params: { testid: parseInt(myid), subjid: parseInt(sid) }
             }).success(function(data) {
                 $scope.questionLists = data
             $("select[name='testtype']").val(myid);
@@ -229,6 +263,7 @@ config.controller('questionListCtrl',  ['$scope', '$http', 'configService', func
     
     function saveTest() {
         var myid = sessionStorage.getItem('configId');
+        var sid = sessionStorage.getItem('subjId'); 
         var questionID = '';
         $('[name="chkb[]"]:checked').each(function () {
             var arr = $(this).val().split(':');
@@ -243,7 +278,7 @@ config.controller('questionListCtrl',  ['$scope', '$http', 'configService', func
         $http({
             url: myUrl, 
             method: "GET",
-            params: { qID: questionID,testtype: myid}
+            params: { qID: questionID,testtype: myid,subjid: parseInt(sid)}
         }).success(function(data) {
             $scope.$apply;
             configService.goToPage("testconfig.php");
