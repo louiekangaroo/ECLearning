@@ -22,11 +22,11 @@
     $StudentID = $_SESSION['studentID'];
     
     
-    $itemseasy = getfieldvalue("topic_config", "itemseasy", "where testtype = '$c_topicid' and subjid = '$c_subjid'");
+    $itemseasy = getfieldvalue("topic_config", "SUM(itemseasy)", "where testtype = '$c_topicid' AND FIND_IN_SET(SUBJID, '$c_subjid')");
                     
-    $itemsmoderate = getfieldvalue("topic_config", "itemsmoderate", "where testtype = '$c_topicid' and subjid = '$c_subjid'");
+    $itemsmoderate = getfieldvalue("topic_config", "SUM(itemsmoderate)", "where testtype = '$c_topicid' AND FIND_IN_SET(SUBJID, '$c_subjid')");
 
-    $itemsdifficult = getfieldvalue("topic_config", "itemsdifficult", "where testtype = '$c_topicid' and subjid = '$c_subjid'");
+    $itemsdifficult = getfieldvalue("topic_config", "SUM(itemsdifficult)", "where testtype = '$c_topicid' AND FIND_IN_SET(SUBJID, '$c_subjid')");
     
     $totalitems = $itemsdifficult + $itemseasy + $itemsmoderate;
     
