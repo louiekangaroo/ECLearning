@@ -38,7 +38,7 @@
                             <div class="form-group">
                                 <label for="txtUsername" class="col-md-4 control-label txtLabel">Username:</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="txtUsername" maxlength="15">
+                                    <input type="text" class="form-control inputUser" id="txtUsername" maxlength="15">
                                 </div>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                             <div class="form-group">
                                 <label for="inputPassword" class="col-md-4 control-label txtLabel">Password:</label>
                                 <div class="col-md-8">
-                                    <input type="password" class="form-control" id="txtPassword" maxlength="6">
+                                    <input type="password" class="form-control inputUser" id="txtPassword" maxlength="6">
                                 </div>
                             </div>
                         </div>
@@ -56,7 +56,7 @@
                             <div class="form-group">
                                 <label for="txtFirstName" class="col-md-4 control-label txtLabel">First Name:</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="txtFirstName">
+                                    <input type="text" class="form-control inputUser" id="txtFirstName">
                                 </div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                             <div class="form-group">
                                 <label for="txtMiddleName" class="col-md-4 control-label txtLabel">Middle Name:</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="txtMiddleName">
+                                    <input type="text" class="form-control inputUser" id="txtMiddleName">
                                 </div>
                             </div>
                         </div>
@@ -72,7 +72,7 @@
                             <div class="form-group">
                                 <label for="txtLastName" class="col-md-4 control-label txtLabel">Last Name:</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="txtLastName">
+                                    <input type="text" class="form-control inputUser" id="txtLastName">
                                 </div>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                             <div class="form-group">
                                 <label for="txtAddress" class="col-md-2 control-label txtLabel">Address:</label>
                                 <div class="col-md-10">
-                                    <textarea id="txtAddress" class="form-control"></textarea>
+                                    <textarea id="txtAddress" class="form-control inputUser"></textarea>
                                 </div>
                             </div>
                         </div>
@@ -90,7 +90,7 @@
                             <div class="form-group">
                                 <label for="txtContactNo" class="col-md-4 control-label txtLabel">Contact No.:</label>
                                 <div class="col-md-8">
-                                    <input type="text" class="form-control" id="txtContactNo">
+                                    <input type="text" class="form-control inputUser" id="txtContactNo">
                                 </div>
                             </div>
                         </div>
@@ -100,7 +100,7 @@
                             <div class="form-group">
                                 <label for="txtEmail" class="col-md-4 control-label txtLabel">Email Address:</label>
                                 <div class="col-md-8">
-                                    <input type="email" class="form-control" id="txtEmail">
+                                    <input type="email" class="form-control inputUser" id="txtEmail">
                                 </div>
                             </div>
                         </div>
@@ -108,7 +108,7 @@
                             <div class="form-group">
                                 <label for="txtUserType" class="col-md-4 control-label txtLabel">User Type:</label>
                                 <div class="col-md-8">
-                                    <select name="txtUserType" class="form-control">
+                                    <select name="txtUserType" class="form-control inputUser">
                                         <option value="Admin">Admin</option>
                                         <option value="Teacher">Teacher</option>
                                         <option value="Student">Student</option>
@@ -135,10 +135,10 @@
                             <div class="form-group clsButtonSaveCancel">
                                 <label class="col-md-4"></label>
                                 <div class="col-md-4">
-                                    <input type="button" class ="btnSave" value="Save" style="float: right; width: 100%;">
+                                    <button type="button" class="btnSave defaultBtn blueBg" style="float: right; width: 100%;"> Save </button>
                                 </div>
                                 <div class="col-md-4">
-                                    <input type="button" class ="btnCancel" value="Cancel" style="float: right; width: 100%;">
+                                    <button type="button" class="btnCancel defaultBtn greyBg" style="float: right; width: 100%;"> Cancel </button>
                                 </div>
                             </div>
                         </div>

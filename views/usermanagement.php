@@ -32,7 +32,8 @@
             <div class="row content">
                 <div class="col-xs-12 col-sm-12 col-lg-12 text-left">
                     <div class="divButtons">
-                         <input type="button" class ="btnUser" value="Add New">
+                         <button type="button" class="btnUser defaultBtn"> Add New </button>
+
                     </div>
                     <div class="table-responsive">
                         <table id="userTbl" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -52,7 +53,7 @@
                               <td class="alignCenter">
                                   <p class="pLink">
                                       <span class="btnLink blue glyphicon glyphicon-pencil" ng-click="btnEditUser(user.id)"></span>
-                                      <span class="btnLink red glyphicon glyphicon-remove" ng-click="btnDeleteUser(user.id)"></span>
+                                      <span class="btnLink red glyphicon glyphicon-remove" ng-click="btnDeleteUser(user.id, user.username)"></span>
                                   </p> 
                               </td>
                           </tr>

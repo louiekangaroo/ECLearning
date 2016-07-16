@@ -133,11 +133,11 @@ input[type=radio   ]:not(old) + label > span{
   border           : 0.0625em solid rgb(192,192,192);
   border-radius    : 0.25em;
   background       : rgb(224,224,224);
-  background-image :    -moz-linear-gradient(rgb(240,240,240),rgb(224,224,224));
-  background-image :     -ms-linear-gradient(rgb(240,240,240),rgb(224,224,224));
-  background-image :      -o-linear-gradient(rgb(240,240,240),rgb(224,224,224));
-  background-image : -webkit-linear-gradient(rgb(240,240,240),rgb(224,224,224));
-  background-image :         linear-gradient(rgb(240,240,240),rgb(224,224,224));
+  background-image :    -moz-linear-gradient(rgb(255, 255, 255),rgb(255, 255, 255));
+  background-image :     -ms-linear-gradient(rgb(255, 255, 255),rgb(255, 255, 255));
+  background-image :      -o-linear-gradient(rgb(255, 255, 255),rgb(255, 255, 255));
+  background-image : -webkit-linear-gradient(rgb(255, 255, 255),rgb(255, 255, 255));
+  background-image :         linear-gradient(rgb(255, 255, 255),rgb(255, 255, 255));
   vertical-align   : bottom;
   border-radius: 0px;
   border: 1px solid #656565;
@@ -145,11 +145,11 @@ input[type=radio   ]:not(old) + label > span{
 
 input[type=checkbox]:not(old):checked + label > span,
 input[type=radio   ]:not(old):checked + label > span{
-  background-image :    -moz-linear-gradient(rgb(224,224,224),rgb(240,240,240));
-  background-image :     -ms-linear-gradient(rgb(224,224,224),rgb(240,240,240));
-  background-image :      -o-linear-gradient(rgb(224,224,224),rgb(240,240,240));
-  background-image : -webkit-linear-gradient(rgb(224,224,224),rgb(240,240,240));
-  background-image :         linear-gradient(rgb(224,224,224),rgb(240,240,240));
+  background-image :    -moz-linear-gradient(rgb(255, 255, 255),rgb(255, 255, 255));
+  background-image :     -ms-linear-gradient(rgb(255, 255, 255),rgb(255, 255, 255));
+  background-image :      -o-linear-gradient(rgb(255, 255, 255),rgb(255, 255, 255));
+  background-image : -webkit-linear-gradient(rgb(255, 255, 255),rgb(255, 255, 255));
+  background-image :         linear-gradient(rgb(255, 255, 255),rgb(255, 255, 255));
 }
 
 input[type=checkbox]:not(old):checked + label > span:before{
@@ -199,6 +199,19 @@ input[type=radio]:not(old):checked + label > span > span{
 
 .red {
     color: #ff5858;   
+}
+
+.redBg { 
+    background-color: #ff5858 !important; 
+    color: #fff;
+}
+.blueBg { 
+    background-color: #4e81c0 !important; 
+    color: #fff;
+}
+.greyBg { 
+    background-color: #70767d !important; 
+    color: #fff;
 }
 
 /*LOGIN------------------------------------------*/
@@ -310,12 +323,13 @@ input[type=radio]:not(old):checked + label > span > span{
     margin-bottom: 20px;
 }
 
-.btnUser {
+.defaultBtn {
     box-sizing: border-box;
-    background-color: #ffffff !important;
+    background-color: #ffffff;
     height: 35px !important;
-    border: 1px solid #0095d3 !important;
+    border: none !important;
     margin-bottom: 5px !important;
+    font-size: 15px !important;
 }
 
 .txtLabel {
@@ -325,7 +339,7 @@ input[type=radio]:not(old):checked + label > span > span{
 #userDiv {
      background-color: #fff;
     border: 1px solid rgba(113, 113, 113, 0.33) !important;
-    border-radius: 15px;
+    
     padding: 40px 10px 30px 0px;
     display:block;
     overflow:hidden;
@@ -337,6 +351,17 @@ input[type=radio]:not(old):checked + label > span > span{
     border:1px solid #ccc;
     border-radius: 4px;
     background: #fff;
+}
+
+.inputUser {
+    border: 1px solid #cccccc;
+    border-radius: 0px !important;
+}
+
+.inputUser:focus {
+    border: 1px solid #757575;
+    box-shadow: none;
+    
 }
 
 /*TEST CONFIG------------------------------------*/

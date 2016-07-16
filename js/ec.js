@@ -96,6 +96,9 @@ $(document).ready(function() {
         $("#user_login").focus();
     }
     
+    $("#txtUsername").focus();
+    
+    
     //HEADER----------------------------------------------------------------------------------------
     
     $('ul.dropdown-menu [data-toggle=dropdown]').on('click', function(event) {

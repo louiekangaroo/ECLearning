@@ -25,7 +25,7 @@
            siteRedirectWithAlert("Welcome back " . $_SESSION['wholename'],"index.php");
        }else{
            session_destroy();
-           DisplayAlert("Invalid Username and/or Password combination.");
+           DisplayAlert("Invalid Login.");
        }
    } else {
        
@@ -66,7 +66,7 @@
                      <input type="text" name="user_login" class="textBox" id="user_login" placeholder="Username"/>
                      <input type="password" name="user_password" class="passBox" id="user_password" placeholder="Password"/>
                      <button type="submit" class="btn btn-blue btnBox">Sign In</button>
-                     <a class="link lnk-forgotPass">Forgot your password?</a>
+                     <!--<a class="link lnk-forgotPass">Forgot your password?</a>-->
                      <br><span class="link warningText" style="display:none">asdadsa</span>
                   </div>
                </div>

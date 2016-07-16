@@ -27,12 +27,13 @@ user.controller('getUserListCtrl',  ['$scope', '$http', 'userService', function 
     $scope.btnEditUser = function(id) {
         userService.goToPage("addedituser.php");
         sessionStorage.setItem('editId', id);
+        sessionStorage.setItem('manageType', 'Edit');
     }
     
-    $scope.btnDeleteUser = function(id) {
+    $scope.btnDeleteUser = function(id, uname) {
          var myUrl = '../controllers/deleteuser.php';
         
-        var r = confirm("Are you sure you want to delete this?");
+        var r = confirm("Are you sure you want to delete " + uname.toUpperCase() + "?");
         if (r == true) {
             $http({
             url: myUrl, 
@@ -58,6 +59,7 @@ user.controller('getUserListCtrl',  ['$scope', '$http', 'userService', function 
 user.controller('addeditUserCtrl',  ['$scope', '$http', 'userService', function ($scope, $http, userService) 
 {
    var editId = sessionStorage.getItem('editId');
+   sessionStorage.setItem('editId', 0);
    var manageType = sessionStorage.getItem('manageType');
    $(".clsType").html(manageType);
     
