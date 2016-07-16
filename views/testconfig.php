@@ -32,7 +32,8 @@
             <div class="row content">
                 <div class="col-xs-12 col-sm-12 col-lg-12 text-left">
                 <div class="divButtons">
-                         <input type="button" id="btnCreateNew" class ="btnConfig" value="Create New Record">
+                         <button type="button" id="btnCreateNew" class="btnUser defaultBtn">Add New</button>
+                         <!--<input type="button" id="btnCreateNew" class ="btnConfig" value="Create New Record">-->
                     </div>
                     <div class="table-responsive">
                         <table id="testConfigTbl" class="table table-striped table-bordered" cellspacing="0" width="100%">

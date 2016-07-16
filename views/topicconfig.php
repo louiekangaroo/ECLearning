@@ -32,7 +32,8 @@
         <div class="row content">
             <div class="col-xs-12 col-sm-12 col-lg-12 text-left">
                <div class="divButtons">
-                         <input type="button" class ="btnUser" id="btnAddTopic" value="Add New">
+                         <button type="button" id="btnAddTopic" class="btnUser defaultBtn">Add New</button>
+                         <!--<input type="button" class ="btnUser" id="btnAddTopic" value="Add New">-->
                     </div>
                     <div class="table-responsive">
                         <table id="topicTbl" class="table table-striped table-bordered" cellspacing="0" width="100%">

@@ -28,17 +28,18 @@
       <!--This is the HEADER-->
       <?PHP include_once('echeader.php'); ?>
       <div class="container">
-         <span class="textTitle">Add Topic</span>
+         <span class="textTitle">Edit Topic</span>
          <hr>
          <div class="row content">
             <div class="col-xs-12 col-sm-12 col-lg-12 text-left">
+                <div id="topicDiv">
                <form class="form-horizontal" role="form">
                    <div class="row" style="padding: 0 10px 0 10px">
                         <div class="col-sm-6 col-lg-8">
                             <div class="form-group">
                                 <label for="txtTestType" class="col-md-2 control-label txtLabel">Topic Type:</label>
                                 <div class="col-md-6">
-                                    <select id="idTopic" name="topicchoice" class="form-control">
+                                    <select id="idTopic" name="topicchoice" class="form-control inputUser">
                                            <option value="0">Main Topic</option>
                                         <option value="1">Sub-Topic</option>
                                     </select>
@@ -51,7 +52,7 @@
                        <div class="form-group">
                                 <label class="col-md-2 control-label txtLabel">Main Topics:</label>
                                 <div class="col-md-8">
-                                    <select name="topicval" class="form-control">
+                                    <select name="topicval" class="form-control inputUser">
                                         <option ng-repeat="topic in getMainTopic" value="{{topic.id}}">{{topic.studyname}}</option>
                                     </select>
                                 </div>
@@ -63,7 +64,7 @@
                        <div class="form-group">
                                 <label class="col-md-2 control-label txtLabel">Topic Title:</label>
                                 <div class="col-md-8">
-                                    <input type='text' name='tname' id="topicName" class="form-control">
+                                    <input type='text' name='tname' id="topicName" class="form-control inputUser">
                                 </div>
                        </div>
                    </div>
@@ -73,8 +74,13 @@
                             <div class="form-group">
                             <label class="col-md-2 control-label txtLabel"></label>
                             <div class="col-md-2">
-                                <input type="button" class ="btn btn-blue btnBox btnSaveTopic" ng-click="updateTopic()" value="Save">
-                                <a href='topicconfig.php'>Back to index</a>
+                                <button ng-click="updateTopic()"  type="button" class="btnSave defaultBtn blueBg btnSaveTopic" style="float: right; width: 100%;"> Save </button>
+                                <!--<input type="button" class ="btn btn-blue btnBox btnSaveTopic" ng-click="saveTopic()" value="Save">-->
+                            </div>
+                            <div class="col-md-2">
+                                <button type="button" class="defaultBtn greyBg" style="float: right; width: 100%;">
+                                    <a href='topicconfig.php'>Back</a>
+                                </button> 
                             </div>
                             </div>
                         </div>
@@ -82,6 +88,7 @@
                </form>
             </div>
          </div>
+        </div>
       </div>
       <?PHP include_once('ecfooter.php'); ?>
    </body>
