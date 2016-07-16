@@ -230,7 +230,11 @@ config.controller('editConfigCtrl',  ['$scope', '$http', 'configService', functi
 config.controller('questionListCtrl',  ['$scope', '$http', 'configService', function ($scope, $http, configService) {
         
        var myid = sessionStorage.getItem('configId');
-       var sid = sessionStorage.getItem('subjId');      
+       var sid = sessionStorage.getItem('subjId'); 
+        var easy = 0;
+        var moderate = 0;
+        var difficult = 0;
+    
        loadQuestionList(myid);
     
         function loadQuestionList(tId) {
@@ -250,8 +254,11 @@ config.controller('questionListCtrl',  ['$scope', '$http', 'configService', func
         }
     
        $(".btnSave").click(function() {
-
-        saveTest();
+           /*$('[name="chkb[]"]:checked').each(function () {
+            var arr = $(this).val().split(':');
+            questionID += arr + ",";
+        });*/
+           saveTest();
         });
     
     
@@ -284,6 +291,7 @@ config.controller('questionListCtrl',  ['$scope', '$http', 'configService', func
             configService.goToPage("testconfig.php");
     	});
     }
+    
     
     
     

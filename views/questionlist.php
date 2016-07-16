@@ -38,7 +38,7 @@
                      <div class="form-group">
                         <label for="txtTestType" class="col-md-6 control-label txtLabel">Test Type:</label>
                         <div class="col-md-6">
-                           <select name="testtype" class="form-control testtype">
+                           <select name="testtype" class="form-control testtype inputUser">
                               <option value="1">Pre-Test</option>
                               <option value="2">Post-Test</option>
                               <option value="3">Short Quiz</option>
@@ -54,24 +54,26 @@
                      <div class="form-group">
                         <label for="txtTestType" class="col-md-0 control-label txtLabel"></label>
                         <div class="col-md-12">
-                           <div class="list-responsive">
+                           <div id="questionDiv">
                               <ul ng-repeat="question in questionLists" style="list-style: none;">
                                  <li>
                                     <label>{{question.level}}</label>
-                                    <input type="checkbox" name="chkb[]" ng-checked="question.testid" value="{{question.examid}}">
+                                    <input type="checkbox" name="chkb[]"  ng-checked="question.testid" value="{{question.level}}-{{question.examid}}">
                                     <label for=""><span><span></span></span></label> {{ question.question }}
                                  </li>
-                              </ul>
-                              
-                           </div>
-                              <div class="form-group clsButtonSaveCancel">
-                                <label class="col-md-4"></label>
-                                <div class="col-md-4">
-                                    <input type="button" class ="btnSave" value="Save" style="float: center; width: 50%;">
-                                    <!-- <a href="printlist.php?testid={{ test.id }}" target="_blank">PrintSelection</a> -->
+                              </ul><br>
+                              <div class="col-md-2">
+                                    <button type="button" class="btnSave defaultBtn blueBg" style="float: right; width: 100%;">
+                                        Save
+                                    </button> 
                                 </div>
-                               
-                            </div>
+                               <div class="col-md-2">
+                                    <button type="button" class="defaultBtn greyBg" style="float: right; width: 100%;">
+                                        <a href='testconfig.php'>Back</a>
+                                    </button> 
+                                </div>
+                           </div>
+                              
                         </div>
                      </div>
                       
