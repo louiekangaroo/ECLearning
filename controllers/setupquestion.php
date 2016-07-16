@@ -22,11 +22,11 @@
     $StudentID = $_SESSION['studentID'];
     
     
-    $itemseasy = getfieldvalue("topic_config", "itemseasy", "where testtype = '$c_topicid'");
+    $itemseasy = getfieldvalue("topic_config", "itemseasy", "where testtype = '$c_topicid' and subjid = '$c_subjid'");
                     
-    $itemsmoderate = getfieldvalue("topic_config", "itemsmoderate", "where testtype = '$c_topicid'");
+    $itemsmoderate = getfieldvalue("topic_config", "itemsmoderate", "where testtype = '$c_topicid' and subjid = '$c_subjid'");
 
-    $itemsdifficult = getfieldvalue("topic_config", "itemsdifficult", "where testtype = '$c_topicid'");
+    $itemsdifficult = getfieldvalue("topic_config", "itemsdifficult", "where testtype = '$c_topicid' and subjid = '$c_subjid'");
     
     $totalitems = $itemsdifficult + $itemseasy + $itemsmoderate;
     
