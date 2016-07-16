@@ -114,7 +114,7 @@
                             </div>
                              <div class="col-md-2">
                                 <button type="button" class="defaultBtn greyBg" style="float: right; width: 100%;">
-                                    <a href='topicconfig.php'>Back</a>
+                                    <a href='testconfig.php'>Back</a>
                                 </button> 
                             </div>    
                             </div>

@@ -35,9 +35,12 @@ config.controller('getConfigCtrl',  ['$scope', '$http', 'configService', functio
         configService.goToPage("edit.php"); 
     }
     
-    $scope.btnConfigure = function(id,sid) {
+    $scope.btnConfigure = function(id,sid,easy,medium,diff) {
         sessionStorage.setItem('configId', id);
         sessionStorage.setItem('subjId', sid);
+        sessionStorage.setItem('easy', easy);
+        sessionStorage.setItem('medium', medium);
+        sessionStorage.setItem('diff', diff);
         configService.goToPage("questionlist.php");
     }
     
@@ -231,9 +234,9 @@ config.controller('questionListCtrl',  ['$scope', '$http', 'configService', func
         
        var myid = sessionStorage.getItem('configId');
        var sid = sessionStorage.getItem('subjId'); 
-        var easy = 0;
-        var moderate = 0;
-        var difficult = 0;
+        var easy = sessionStorage.getItem('easy');
+        var moderate =  sessionStorage.getItem('medium');
+        var difficult =  sessionStorage.getItem('diff');
     
        loadQuestionList(myid);
     
@@ -254,11 +257,35 @@ config.controller('questionListCtrl',  ['$scope', '$http', 'configService', func
         }
     
        $(".btnSave").click(function() {
-           /*$('[name="chkb[]"]:checked').each(function () {
-            var arr = $(this).val().split(':');
-            questionID += arr + ",";
-        });*/
-           saveTest();
+           var level;
+           var countEasy =0;
+           var countModerate =0;
+           var countDiff =0;
+           
+           $('[name="chkb[]"]:checked').each(function () {
+                level = $(this).val().split('-')[0];
+                
+                switch (level) {
+                    case "EASY":
+                        countEasy += 1;
+                        break;
+                    case "MEDIUM":
+                        countModerate += 1;
+                        break;
+                    case "DIFFICULT":
+                        countDiff += 1;
+                        break;
+                    default:
+                        break;
+                }           
+           });
+           
+           if (countEasy >= easy && countModerate >= moderate && countDiff >= difficult) {
+                 saveTest();
+           } else {
+                alert("Please select correct number of questions per level.");   
+           }
+          
         });
     
     
@@ -273,7 +300,7 @@ config.controller('questionListCtrl',  ['$scope', '$http', 'configService', func
         var sid = sessionStorage.getItem('subjId'); 
         var questionID = '';
         $('[name="chkb[]"]:checked').each(function () {
-            var arr = $(this).val().split(':');
+            var arr = $(this).val().split('-')[1];
             questionID += arr + ",";
         });
         

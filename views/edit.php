@@ -105,13 +105,18 @@
                         </div>
                    </div>
                    <div class="row" style="padding: 0 10px 0 10px">
-                        <div class="col-sm-6 col-lg-4">
-                            <label for="txtRandomize" class="col-md-6 control-label txtLabel"></label>
+                        <div class="col-sm-6 col-lg-8">
+                            <label for="txtRandomize" class="col-md-2 control-label txtLabel"></label>
                             <div class="form-group">
-                            <div class="col-md-6">
+                            <div class="col-md-2">
                                 <button ng-click="updateConfig()"  type="button" class="btnSave defaultBtn blueBg btnSaveConfig" style="float: right; width: 100%;"> Save </button>
                                 <!--<input type="button" class ="btn btn-blue btnBox btnSaveConfig" ng-click="saveConfig()" value="Save">-->
                             </div>
+                             <div class="col-md-2">
+                                <button type="button" class="defaultBtn greyBg" style="float: right; width: 100%;">
+                                    <a href='testconfig.php'>Back</a>
+                                </button> 
+                            </div>    
                             </div>
                         </div>
                    </div>
