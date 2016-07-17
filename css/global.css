@@ -214,6 +214,15 @@ input[type=radio]:not(old):checked + label > span > span{
     color: #fff;
 }
 
+.divBox {
+    background-color: #fff;
+    border: 1px solid rgba(113, 113, 113, 0.33) !important;
+    padding: 20px 20px 20px 20px;
+    display:block;
+    overflow:hidden;
+    margin-bottom: 45px;   
+}
+
 /*LOGIN------------------------------------------*/
 
 .loginBody {

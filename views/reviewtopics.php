@@ -28,19 +28,39 @@
     <!--This is the HEADER-->
     <?PHP include_once('echeader.php'); ?>
     <div class="container">
-        <span class="textTitle">Select your topic</span><hr>
+        <span class="textTitle">Select your topic</span>
+        <hr>
         <div class="row content">
-            <div class="col-xs-12 col-sm-12 col-lg-12 text-left">
-            
-                <div ng-repeat="x in topics">
-                    <input id="rdio" type="radio" name="rdtopic" value="{{ x.id }}">
-                    <label for="rdio"><span><span></span></span>{{x.topicname}}</label>
+            <div class="col-xs-12 col-sm-12 col-lg-4 text-left">
+                <div class="divBox">
+                    <form class="form-horizontal" role="form">
+                        <div class="row" style="padding: 0 10px 0 10px">
+                            <div class="col-sm-6 col-lg-12">
+                               <div class="form-group">
+                                   <div ng-repeat="x in topics">
+                                        <input id="rdio" type="radio" name="rdtopic" value="{{ x.id }}">
+                                        <label for="rdio"><span><span></span></span>{{x.topicname}}</label>
+                                   </div>
+                               </div>
+                            </div>
+                        </div>
+                        <div class="row" style="padding: 0 10px 0 10px">
+                            <div class="col-sm-6 col-lg-5" style="margin-right:10px;">
+                           <div class="form-group">
+                               <button type="button" class="btnReviewTopicsSubmit defaultBtn blueBg" style="float: right; width: 100%;">                                         Proceed 
+                               </button>
+                           </div>
+                        </div>
+                        <div class="col-sm-6 col-lg-5" style="margin-right:10px;">
+                           <div class="form-group">
+                                <button type="button" class="defaultBtn greyBg" style="float: right; width: 100%;">
+                                    <a href='index.php'>Back to index</a>
+                                </button> 
+                           </div>
+                        </div>
+                        </div>
+                    </form>
                 </div>
-            </div>
-        </div>
-        <div class="row content">
-            <div class="col-xs-12 col-sm-6 col-lg-3 text-left">
-                <input type="submit" class="btn btn-blue btnBox btnReviewTopicsSubmit" value="Submit">
             </div>
         </div>
     </div>

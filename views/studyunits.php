@@ -28,25 +28,43 @@
     <!--This is the HEADER-->
     <?PHP include_once('echeader.php'); ?>
         <div class="container">
-            <span class="textTitle">List of Topics</span><hr>
+            <span class="textTitle">List of topics</span>
+            <hr>
             <div class="row content">
                 <div class="col-xs-12 col-sm-12 col-lg-12 text-left">
-                    
-                    <div data-toggle="collapse" data-target="#collapseOne">
-                        <div ng-repeat="s in studyUnits" class="studyUnits{{s.id}}">
-                            <input id="sunits" type="checkbox" name="rdtopic" value="{{s.id}}" ng-click="expandCollapseChild(s.id)">
-                            <label for="sunits"><span><span></span></span><b>{{s.studyname}}</b></label>
-                        </div>
+                    <div class="divBox">
+                        <form class="form-horizontal" role="form">
+                            <div class="row" style="padding: 0 10px 0 0px">
+                                <div class="col-sm-6 col-lg-12">
+                                    <div data-toggle="collapse" data-target="#collapseOne">
+                                        <div ng-repeat="s in studyUnits" class="studyUnits{{s.id}}">
+                                            <input id="sunits" type="checkbox" name="rdtopic" value="{{s.id}}" ng-click="expandCollapseChild(s.id)">
+                                            <label for="sunits"><span><span></span></span><b>{{s.studyname}}</b></label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row" style="padding: 0 10px 0 10px">
+                                <div class="col-sm-6 col-lg-2" style="margin-right:10px;">
+                                   <div class="form-group">
+                                       <button type="button" class="btnSelectStudyUnits defaultBtn blueBg" style="float: right; width: 100%;">                                         Proceed 
+                                       </button>
+                                   </div>
+                                </div>
+                                <div class="col-sm-6 col-lg-2" style="margin-right:10px;">
+                                   <div class="form-group">
+                                        <button type="button" class="defaultBtn greyBg" style="float: right; width: 100%;">
+                                            <a href='index.php'>Back to index</a>
+                                        </button> 
+                                   </div>
+                                </div>
+                             </div>
+                        </form>
                     </div>
-                    
                 </div>
             </div>
-            <div class="row content">
-                <div class="col-xs-12 col-sm-6 col-lg-3 text-left">
-                    <input type="button" class ="btn btn-blue btnBox btnSelectStudyUnits" value="Proceed">
-                </div>
-            </div>
-        </div>
+       </div>
     <?PHP include_once('ecfooter.php'); ?>
    </body>
 </html>
