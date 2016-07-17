@@ -77,39 +77,17 @@ if(trim($usertype)=="admin" || trim($usertype)=="teacher"){
 	$studentname =strtoupper($studentname);
 	if(strlen(trim($studentname))<1){
 		$studentname = "<font color = 'red'> Sorry No Record found....</font>";
-		/*
-		$studentname = "
-		<td width='20%' bgcolor='#FFFF00'>$studentQname</td>
-        <td width='40%' bgcolor='#FFFF00'><font color = 'red'> Sorry No Record found....</font></td>
-        ";
-		*/
 	}else {
 		$studentname = "<div align='left'>" . $studentname . "</div>";
-		/*
-		$studentname = "
-		<td width='20%' bgcolor='#FFFF00'>$studentQname</td>
-        <td width='40%' bgcolor='#FFFF00'><font color = 'red'> $studentname </font></td>
-        ";	
-		*/	
 	}
 	
   }
 }else {  // the current user is a student
 	$studentID = $_SESSION['studentID'];
 	$studentname = ''; //$_SESSION['wholename'];
-	/*
-	$studentname = "
-		<td width='20%' bgcolor='#FFFF00'> </td>
-        <td width='40%' bgcolor='#FFFF00'> </td>
-	";
-	*/
 }
 
 //open studyunits and form the sql statement to populate user display
-
-
-
-
 ////////////////////////////////////////////////////////////////////
 
 // Create connection
@@ -292,10 +270,6 @@ $details =  "<tr bgcolor='$bgcolor'>
 }
 mysqli_free_result($result);// Clear the memory.
 ////////////////////////////////////////////////////////////////////
-
-
-
-
 $vsql ="SELECT  t.topicid,t.subjid,s.studyname, 
 				t.testtype,correct_ans,ansreceived,
 				sum(correct_ans=ansreceived) 'c',sum(point)-sum(correct_ans=ansreceived) 'in' ,sum(correct_ans=ansreceived)/sum(point)*50+50 'grade'
