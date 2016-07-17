@@ -21,7 +21,7 @@ include_once("../views/menuinterface.php");
     $tmoderate = $_GET['moderate'];
     $tdifficult = $_GET['difficult'];        
         
-    $sql = "select * from topic_config where subjid=$sid";
+    $sql = "select * from topic_config where testtype = '$ttype' and subjid=$sid";
     $result = mysqli_query($con, $sql);
 	if (mysqli_num_rows($result) >=1) {
     echo -1;

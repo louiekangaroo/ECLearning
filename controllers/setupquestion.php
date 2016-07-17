@@ -15,8 +15,8 @@
         die("Connection failed: " . mysqli_connect_error());
 	}   
     
-    $c_topicid = $_GET["sesstopic"];
-    $c_subjid = $_GET["subjid"];
+    $c_topicid = $_GET["sesstopic"]; //3
+    $c_subjid = $_GET["subjid"]; //2
     $c_sessiontype = $_GET["sesstype"];
 
     $StudentID = $_SESSION['studentID'];

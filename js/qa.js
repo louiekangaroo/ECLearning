@@ -53,7 +53,7 @@ qa.controller('reviewTopicsCtrl', ['$scope', '$http', 'qaService', function ($sc
 }]);
 
 qa.controller('studyUnitsCtrl', ['$scope', '$http', 'qaService', function ($scope, $http, qaService) {
-    
+    var sessionTopic = sessionStorage.getItem('sessionTopic');
     $('[name="chkStudy[]"]:checked').each(function () {
         $(this).attr('checked', false); 
     });
