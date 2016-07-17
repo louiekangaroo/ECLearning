@@ -27,10 +27,17 @@
     $itemsmoderate = getfieldvalue("topic_config", "SUM(itemsmoderate)", "where testtype = '$c_topicid' AND FIND_IN_SET(SUBJID, '$c_subjid')");
 
     $itemsdifficult = getfieldvalue("topic_config", "SUM(itemsdifficult)", "where testtype = '$c_topicid' AND FIND_IN_SET(SUBJID, '$c_subjid')");
+
+    $israndom = getfieldvalue("topic_config", "SUM(israndom)", "where testtype = '$c_topicid' AND FIND_IN_SET(SUBJID, '$c_subjid')");
     
     $totalitems = $itemsdifficult + $itemseasy + $itemsmoderate;
     
-    $sqlscript = "call  generateQuestions('$StudentID','$c_topicid','$c_subjid','$c_topicid',$itemseasy,$itemsmoderate,$itemsdifficult,$c_sessiontype,'$c_topicid',$totalitems)";
+    if ($israndom > 0){
+        $sqlscript = "call  generateQuestions('$StudentID','$c_topicid','$c_subjid','$c_topicid',$itemseasy,$itemsmoderate,$itemsdifficult,$c_sessiontype,'$c_topicid',$totalitems)";
+    } else {
+         $sqlscript = "call  generateQuestionsNonRandom('$StudentID','$c_topicid','$c_subjid','$c_topicid',$itemseasy,$itemsmoderate,$itemsdifficult,$c_sessiontype,'$c_topicid',$totalitems)";
+    }
+    
     ExecuteNoneQuery($sqlscript);   
 
     echo $totalitems;
