@@ -59,7 +59,7 @@
                               <td class="alignCenter">
                                   <span class="btnLink blue glyphicon glyphicon-file" ng-click="btnConfigure(test.testtype,test.subjid,test.itemseasy,test.itemsmoderate,test.itemsdifficult)" title="Configure Questions"></span>
                                   <span class="btnLink blue glyphicon glyphicon-pencil" ng-click="btnEdit(test.id)" title="Edit"></span>
-                                  <span class="btnLink blue glyphicon glyphicon-print" ng-click="btnPrint(test.id)" title="Print Questions"></span>
+                                  <span class="btnLink blue glyphicon glyphicon-print" ng-click="btnPrint(test.testtype)" title="Print Questions"></span>
                                       
                                     
                             
