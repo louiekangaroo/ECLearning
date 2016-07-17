@@ -198,9 +198,9 @@ if ($result) {
 				where t.subjid=s.id and t.testsessionid = '1' and t.testtype='1' and t.topicid='1'
 				group by t.testsessionid,t.topicid,t.subjid) x;
 				*/
-				$PostTestC = "";
-				$PostTestIN = "";
-				$PostTestGrade =trim(getfieldvalue(" (
+				$PreTestC ="";
+				$PreTestIN="";
+				$PreTestGrade=trim(getfieldvalue(" (
 				SELECT
 				(sum(correct_ans=ansreceived)/sum(point)*50+50) 'average'
 				FROM testhistory t, studyunits s
@@ -209,9 +209,9 @@ if ($result) {
 				"if(round(avg(x.average),2) IS NULL,' ',round(avg(x.average),2))",  
 				" "));
 				
-				$PreTestC ="";
-				$PreTestIN="";
-				$PreTestGrade=trim(getfieldvalue(" (
+				$PostTestC = "";
+				$PostTestIN = "";
+				$PostTestGrade =trim(getfieldvalue(" (
 				SELECT
 				(sum(correct_ans=ansreceived)/sum(point)*50+50) 'average'
 				FROM testhistory t, studyunits s
@@ -261,6 +261,7 @@ if ($result) {
 		$details .= "<tr bgcolor='$bgcolor'>
 						<td>$maintopic</td>
 						<td>$subtopic</td>
+						<!-- pre test -->
 						<td>$PreTestC</td> <!-- C -->
 						<td>$PreTestIN</td> <!-- IN -->
 						<td>$PreTestGrade</td> <!-- Grade -->
