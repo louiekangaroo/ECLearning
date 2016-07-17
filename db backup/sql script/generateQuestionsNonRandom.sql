@@ -13,43 +13,43 @@ SELECT TRUE FROM studentsession;
 ELSE
 IF (_type = 1) THEN -- for pre-test questions
 INSERT INTO studentsession (studentid,questionid,answer,datetimecreated,datetimeanswered,sessiontype,testsessionid,testtypeid)
-SELECT studid,U.questionid,NULL,NOW(),NULL,sessiontype,@testsessionid,testtypeid FROM ((SELECT questionid FROM qpretest WHERE TOPICID = topid AND FIND_IN_SET(SUBJID, subid) AND LEVEL = 'EASY' AND TYPE = _type ORDER BY id LIMIT toteasy) 
+SELECT studid,U.questionid,NULL,NOW(),NULL,sessiontype,@testsessionid,testtypeid FROM ((SELECT questionid FROM qpretest WHERE  FIND_IN_SET(SUBJID, subid) AND LEVEL = 'EASY' AND TYPE = _type ORDER BY id LIMIT toteasy) 
 UNION
-(SELECT questionid FROM qpretest WHERE TOPICID = topid AND  FIND_IN_SET(SUBJID, subid) AND LEVEL = 'MEDIUM' AND TYPE = _type ORDER BY id LIMIT totmed )
+(SELECT questionid FROM qpretest WHERE FIND_IN_SET(SUBJID, subid) AND LEVEL = 'MEDIUM' AND TYPE = _type ORDER BY id LIMIT totmed )
 UNION
-(SELECT questionid FROM qpretest WHERE TOPICID = topid AND FIND_IN_SET(SUBJID, subid) AND LEVEL = 'DIFFICULT' AND TYPE = _type ORDER BY id LIMIT totdiff ))
+(SELECT questionid FROM qpretest WHERE  FIND_IN_SET(SUBJID, subid) AND LEVEL = 'DIFFICULT' AND TYPE = _type ORDER BY id LIMIT totdiff ))
 AS U WHERE U.questionid NOT IN (SELECT DISTINCT questionid FROM studentsession WHERE studentid = studid) ;
 ELSEIF (_type = 2) THEN -- for postt-test questions
 INSERT INTO studentsession (studentid,questionid,answer,datetimecreated,datetimeanswered,sessiontype,testsessionid,testtypeid)
-SELECT studid,U.questionid,NULL,NOW(),NULL,sessiontype,@testsessionid,testtypeid FROM ((SELECT questionid FROM qposttest WHERE TOPICID = topid AND FIND_IN_SET(SUBJID, subid) AND LEVEL = 'EASY' AND TYPE = _type ORDER BY id LIMIT toteasy) 
+SELECT studid,U.questionid,NULL,NOW(),NULL,sessiontype,@testsessionid,testtypeid FROM ((SELECT questionid FROM qposttest WHERE FIND_IN_SET(SUBJID, subid) AND LEVEL = 'EASY' AND TYPE = _type ORDER BY id LIMIT toteasy) 
 UNION
-(SELECT questionid FROM qposttest WHERE TOPICID = topid AND  FIND_IN_SET(SUBJID, subid) AND LEVEL = 'MEDIUM' AND TYPE = _type ORDER BY id LIMIT totmed )
+(SELECT questionid FROM qposttest WHERE FIND_IN_SET(SUBJID, subid) AND LEVEL = 'MEDIUM' AND TYPE = _type ORDER BY id LIMIT totmed )
 UNION
-(SELECT questionid FROM qposttest WHERE TOPICID = topid AND FIND_IN_SET(SUBJID, subid) AND LEVEL = 'DIFFICULT' AND TYPE = _type ORDER BY id LIMIT totdiff ))
+(SELECT questionid FROM qposttest WHERE FIND_IN_SET(SUBJID, subid) AND LEVEL = 'DIFFICULT' AND TYPE = _type ORDER BY id LIMIT totdiff ))
 AS U WHERE U.questionid NOT IN (SELECT DISTINCT questionid FROM studentsession WHERE studentid = studid) ;
 ELSEIF (_type = 3) THEN -- for shortquiz questions
 INSERT INTO studentsession (studentid,questionid,answer,datetimecreated,datetimeanswered,sessiontype,testsessionid,testtypeid)
-SELECT studid,U.questionid,NULL,NOW(),NULL,sessiontype,@testsessionid,testtypeid FROM ((SELECT questionid FROM qshortquiz WHERE TOPICID = topid AND FIND_IN_SET(SUBJID, subid) AND LEVEL = 'EASY' AND TYPE = _type ORDER BY id LIMIT toteasy) 
+SELECT studid,U.questionid,NULL,NOW(),NULL,sessiontype,@testsessionid,testtypeid FROM ((SELECT questionid FROM qshortquiz WHERE FIND_IN_SET(SUBJID, subid) AND LEVEL = 'EASY' ORDER BY id LIMIT toteasy) 
 UNION
-(SELECT questionid FROM qshortquiz WHERE TOPICID = topid AND  FIND_IN_SET(SUBJID, subid) AND LEVEL = 'MEDIUM' AND TYPE = _type ORDER BY id LIMIT totmed )
+(SELECT questionid FROM qshortquiz WHERE FIND_IN_SET(SUBJID, subid) AND LEVEL = 'MEDIUM' ORDER BY id LIMIT totmed )
 UNION
-(SELECT questionid FROM qshortquiz WHERE TOPICID = topid AND FIND_IN_SET(SUBJID, subid) AND LEVEL = 'DIFFICULT' AND TYPE = _type ORDER BY id LIMIT totdiff ))
+(SELECT questionid FROM qshortquiz WHERE FIND_IN_SET(SUBJID, subid) AND LEVEL = 'DIFFICULT' ORDER BY id LIMIT totdiff ))
 AS U WHERE U.questionid NOT IN (SELECT DISTINCT questionid FROM studentsession WHERE studentid = studid) ;
 ELSEIF (_type = 4) THEN
 INSERT INTO studentsession (studentid,questionid,answer,datetimecreated,datetimeanswered,sessiontype,testsessionid,testtypeid)
-SELECT studid,U.questionid,NULL,NOW(),NULL,sessiontype,@testsessionid,testtypeid FROM ((SELECT questionid FROM qlongquiz WHERE TOPICID = topid AND FIND_IN_SET(SUBJID, subid) AND LEVEL = 'EASY' AND TYPE = _type ORDER BY id LIMIT toteasy) 
+SELECT studid,U.questionid,NULL,NOW(),NULL,sessiontype,@testsessionid,testtypeid FROM ((SELECT questionid FROM qlongquiz WHERE FIND_IN_SET(SUBJID, subid) AND LEVEL = 'EASY' ORDER BY id LIMIT toteasy) 
 UNION
-(SELECT questionid FROM qlongquiz WHERE TOPICID = topid AND  FIND_IN_SET(SUBJID, subid) AND LEVEL = 'MEDIUM' AND TYPE = _type ORDER BY id LIMIT totmed )
+(SELECT questionid FROM qlongquiz WHERE FIND_IN_SET(SUBJID, subid) AND LEVEL = 'MEDIUM' ORDER BY id LIMIT totmed )
 UNION
-(SELECT questionid FROM qlongquiz WHERE TOPICID = topid AND FIND_IN_SET(SUBJID, subid) AND LEVEL = 'DIFFICULT' AND TYPE = _type ORDER BY id LIMIT totdiff ))
+(SELECT questionid FROM qlongquiz WHERE FIND_IN_SET(SUBJID, subid) AND LEVEL = 'DIFFICULT' ORDER BY id LIMIT totdiff ))
 AS U WHERE U.questionid NOT IN (SELECT DISTINCT questionid FROM studentsession WHERE studentid = studid) ;
 ELSE
 INSERT INTO studentsession (studentid,questionid,answer,datetimecreated,datetimeanswered,sessiontype,testsessionid,testtypeid)
-SELECT studid,U.questionid,NULL,NOW(),NULL,sessiontype,@testsessionid,testtypeid FROM ((SELECT questionid FROM qmajorexam WHERE TOPICID = topid AND FIND_IN_SET(SUBJID, subid) AND LEVEL = 'EASY' AND TYPE = _type ORDER BY id LIMIT toteasy) 
+SELECT studid,U.questionid,NULL,NOW(),NULL,sessiontype,@testsessionid,testtypeid FROM ((SELECT questionid FROM qmajorexam WHERE FIND_IN_SET(SUBJID, subid) AND LEVEL = 'EASY' ORDER BY id LIMIT toteasy) 
 UNION
-(SELECT questionid FROM qmajorexam WHERE TOPICID = topid AND  FIND_IN_SET(SUBJID, subid) AND LEVEL = 'MEDIUM' AND TYPE = _type ORDER BY id LIMIT totmed )
+(SELECT questionid FROM qmajorexam WHERE FIND_IN_SET(SUBJID, subid) AND LEVEL = 'MEDIUM' ORDER BY id LIMIT totmed )
 UNION
-(SELECT questionid FROM qmajorexam WHERE TOPICID = topid AND FIND_IN_SET(SUBJID, subid) AND LEVEL = 'DIFFICULT' AND TYPE = _type ORDER BY id LIMIT totdiff ))
+(SELECT questionid FROM qmajorexam WHERE FIND_IN_SET(SUBJID, subid) AND LEVEL = 'DIFFICULT' ORDER BY id LIMIT totdiff ))
 AS U WHERE U.questionid NOT IN (SELECT DISTINCT questionid FROM studentsession WHERE studentid = studid) ;
 END IF;
 END IF;
