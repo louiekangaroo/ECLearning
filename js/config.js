@@ -302,7 +302,7 @@ config.controller('questionListCtrl',  ['$scope', '$http', 'configService', func
         $('[name="chkb[]"]:checked').each(function () {
             var arr = $(this).val().split('-')[1];
             questionID += arr + ",";
-        });
+        }); 
         
         questionID =  questionID.substring(0, questionID.length - 1);
     
