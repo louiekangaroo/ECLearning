@@ -58,10 +58,21 @@
                     <div class="form-group">
                         <div class="col-md-12" style="text-align: center">
                             <h2>Performance Rating</h2>
-                            <h3 class="grade">78%</h3>
+                            <h3 class="grade">{{average}}%</h3>
                             <h3 class="remarks">Good!</h3>
                             <h3 class="advice">Practice More!</h3>
                         </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row content">
+                <div class="col-sm-12 col-lg-12">
+                    <div class="form-group">
+                        <div class="col-md-4">
+                                <button type="button" class="defaultBtn blueBg" style="float: right; width: 100%;">
+                                    <a href='perfanalysis.php'>Proceed to Performance Analysis</a>
+                                </button> 
+                            </div>
                     </div>
                 </div>
             </div>

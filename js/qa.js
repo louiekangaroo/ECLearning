@@ -121,6 +121,8 @@ qa.controller('questionAndAnswerCtrl', ['$scope', '$http', 'qaService', function
     var qaIndex = 0;
     var questionId = 0;
     var totalQuestions = 0;
+    var noOfCorrect = 0;
+    
     $scope.qaresults = [];
     
     if (sessionType == 0) {
@@ -145,6 +147,7 @@ qa.controller('questionAndAnswerCtrl', ['$scope', '$http', 'qaService', function
             params: { sesstopic : sessionTopic, subjid : subjectId, sesstype: sessionType }
         }).success(function(data) {
             totalQuestions = parseInt(data.trim());
+            sessionStorage.setItem('totalNoQuestions', totalQuestions);
              setTimeout(function() {
                 loadQuestions(qaIndex);
              },1000);
@@ -201,11 +204,14 @@ qa.controller('questionAndAnswerCtrl', ['$scope', '$http', 'qaService', function
     
     function displayAnswerStatus() {
         
+
         var ans = $("input[name=question-answers]:checked").val();
         var correctAnswer = $scope.question.correct_ans;
         var stat = "";
         if (ans == correctAnswer) {
             stat = "Correct";
+            noOfCorrect += 1;
+            sessionStorage.setItem('noOfCorrect', noOfCorrect);
         } else {
             stat = "Wrong";
         }
@@ -314,5 +320,14 @@ qa.controller('questionAndAnswerCtrl', ['$scope', '$http', 'qaService', function
    
 
     
-
+qa.controller('finishCtrl', ['$scope', '$http', 'qaService', function ($scope, $http, qaService) {
+    var total = sessionStorage.getItem("totalNoQuestions");
+    var grade = sessionStorage.getItem("noOfCorrect");
+    var typeOfTest = sessionStorage.getItem("sessionType");
+    
+    var average = (grade / total) * 50 + 50;
+    
+    $scope.average = Math.round(average);
+    
+}]);
 
