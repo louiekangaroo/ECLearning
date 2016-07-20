@@ -18,7 +18,7 @@
                     <li><a href='topicconfig.php'>Manage Topics</a></li>
                 </ul>
             </li>
-            <li class='dropdown'><a href='underconst.php' class='dropdown-toggle' data-toggle='dropdown'>Manage Study Materials</b></a></li>
+            <li class='dropdown'><a href='UploadFile.php'>Manage Study Materials</b></a></li>
             <li class='dropdown'><a href='#' class='dropdown-toggle' data-toggle='dropdown'>Report Management <b class='caret'></b></a>
                 <ul class='dropdown-menu'>
                     <li><a href='printcoursemast.php' target='_blank'>Course Master List</a></li>

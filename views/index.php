@@ -27,6 +27,6 @@
     <?PHP include_once('echeader.php'); ?>
     <!--This is the FOOTER-->
     <?PHP include_once('ecfooter.php'); ?>
-           
+      
    </body>
 </html>
